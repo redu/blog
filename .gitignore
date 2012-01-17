@@ -13,3 +13,22 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+.bundle
+db/*.sqlite3
+log/*.log
+tmp/
+*.swp
+mongrel/
+bin/
+db/schema.rb
+log/**/*
+*.tmproj
+config/database.yml
+public/system/*/*
+*~
+*.swo
+.DS_Store
+Gemfile.local.rb
+public/assets/*
+public/images/users/*
+public/images/myfiles/*
