@@ -1,15 +1,21 @@
 <h1> Listing Posts </h1>
-
-
+<ul>
 <% @posts.each do |post| %>
-	<p><%= post.title %></p>
-
+	<li><%= link_to post.title, post %></li>
 <% end %>
+</ul>
 
-<%= link_to 'New post', new_post_path %>
+<%= link_to 'New post', new_post_path %> <br />
 
 <% if user_signed_in? %>
-<%= link_to 'Logout', destroy_user_session_path, :method => :delete %> 
+<%= link_to 'Logout', destroy_user_session_path, :method => :delete %>
 <% else %>
 <%= link_to 'Login', new_user_session_path %>
 <% end %>
+<br />
+<div>
+  <%= form_tag "posts/search", :method => 'get' do %>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search posts", :name => nil %>
+  <% end %>
+</div>

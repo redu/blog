@@ -1,37 +1,14 @@
-<p id="notice"><%= notice %></p>
+<h2><%= @post.title %></h2>
 
-<p>
-  <b>Name:</b>
-  <%= @post.name %>
-</p>
-
-<p>
-  <b>Title:</b>
-  <%= @post.title %>
-</p>
-
-<p>
-  <b>Content:</b>
-  <%= @post.content %>
-</p>
-
-<p>
-	<b>Tags:</b>
-	<%= join_tags(@post) %>
-</p>
-
-<h2>Comments</h2>
-<% if @post.comments.size == 0 then %>
-	<%= "No Comments" %>
-<% else %>
-<%= render 	:partial => "comments/comment",
-		:collection => @post.comments %>
-<% end %>
-
-<h2>Add a Comment:</h2>
-<%= render "comments/form" %>
+<p><%= @post.body %></p>
 
 <br />
+<div id="options">
+  <%= link_to 'Edit', edit_post_path(@post) %> |
+  <%= link_to 'Delete', [@post], :method => :delete %>
+</div>
+<br />
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<div>
+  <%= link_to 'Back', posts_path %>
+</div>
