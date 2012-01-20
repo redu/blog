@@ -52,7 +52,9 @@ class PostsController < ApplicationController
       end
     end
 
+    # FIXME: melhorar busca!
     def search
-      puts params[:search]
+      @posts = Post.all.collect.find_all{|post| post.body.downcase.include? params[:search].downcase or post.title.downcase.include? params[:search].downcase}
+
     end
 end
