@@ -18,7 +18,7 @@ Blog::Application.routes.draw do
   # new, edit, show, index, create, destroy,  update
   root :to => "posts#index"
 
-
+  resources :tags
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

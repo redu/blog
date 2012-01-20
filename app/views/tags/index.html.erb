@@ -1,0 +1,15 @@
+<h1>Listing Tags</h1>
+
+<ol>
+	<% @tags.each do |tag| %>
+	<li><%=tag.name%></li>
+	<%end%>
+</ol>
+
+<div>
+	<%= form_for(@tags_new) do |form| %>
+	<%= form.label :name %>
+	<%= form.text_field :name%>
+	<%= form.submit "Create" %> 
+	<% end %>
+</div>
