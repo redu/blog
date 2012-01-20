@@ -1,9 +1,16 @@
 <h1> Listing Posts </h1>
-
-
+<ul>
 <% @posts.each do |post| %>
-	<p><%= post.title %></p>
-
+	<li><%= link_to post.title, post %></li>
 <% end %>
+</ul>
 
-<%= link_to 'New post', new_post_path %> 
+<%= link_to 'New post', new_post_path %> <br />
+
+<br />
+<div>
+  <%= form_tag "posts/search", :method => 'get' do %>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search posts", :name => nil %>
+  <% end %>
+</div>

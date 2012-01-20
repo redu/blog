@@ -1,0 +1,14 @@
+<h2><%= @post.title %></h2>
+
+<p><%= @post.body %></p>
+
+<br />
+<div id="options">
+  <%= link_to 'Edit', edit_post_path(@post) %> |
+  <%= link_to 'Delete', [@post], :method => :delete %>
+</div>
+<br />
+
+<div>
+  <%= link_to 'Back', posts_path %>
+</div>
