@@ -4,6 +4,9 @@ class Post < ActiveRecord::Base
 		"#{id} #{title}".parameterize
 	end
 
+	belongs_to :user
+	has_and_belongs_to_many :tags
+ 
 	# TODO confirmar a obrigatoriedade da existência de um título para postagem
 	# TODO confirmar o tamanho máximo permitido para o título de um post
 	validates :title, :presence => true, :length => { :maximum => 140 }
