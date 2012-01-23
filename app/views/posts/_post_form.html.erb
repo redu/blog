@@ -14,4 +14,13 @@
     <%= form.submit %>
   </div>
 
+  <div>
+    <%= @tag.each do |tag| %>
+    <%= form_for tag do |form_checkbox|%>
+	    <%= form_checkbox.check_box (:posts)%>
+	    <%= form_checkbox.label (:posts, tag.name) %>
+    <% end %>
+    <% end %>
+  </div>
+
 <% end %>

@@ -8,6 +8,7 @@ class PostsController < ApplicationController
 
     def new
       @post = Post.new
+      @tag = Tag.all
       respond_to do |format|
         format.html  # new.html.erb
       end
