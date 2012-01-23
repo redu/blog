@@ -1,7 +1,8 @@
 class Post < ActiveRecord::Base
 
-	belongs_to :user
-	has_and_belongs_to_many :tags
+	def to_param
+		"#{id} #{title}".parameterize
+	end
 
 	# TODO confirmar a obrigatoriedade da existência de um título para postagem
 	# TODO confirmar o tamanho máximo permitido para o título de um post
