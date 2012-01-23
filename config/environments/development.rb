@@ -13,8 +13,9 @@ Blog::Application.configure do
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
 
-  # Don't care if the mailer can't send
-  config.action_mailer.raise_delivery_errors = false
+  # Don't care if the mailer can't send (OBSOLETO)
+  # Care! (lá embaixo)
+  # config.action_mailer.raise_delivery_errors = true
 
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
@@ -30,4 +31,23 @@ Blog::Application.configure do
   
   # Por minha conta em risco, seguindo o manual do Devise
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  
+  # Configuração do Action Mailer
+  require 'tlsmail'
+  Net::SMTP.enable_tls(OpenSSL::SSL::VERIFY_NONE)
+
+  ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.perform_deliveries = true
+  ActionMailer::Base.raise_delivery_errors = true
+  ActionMailer::Base.smtp_settings = {
+    :enable_starttls_auto 	=> true,
+    :address				=> 'smtp.gmail.com',
+    :port					=> 587,
+	:tls					=> true,
+	:domain					=> 'gmail.com',
+	:authentication			=> :plain,
+	:user_name				=> 'redu.blog@gmail.com',
+	:password				=> 'xadrez2012'
+  }
+
 end

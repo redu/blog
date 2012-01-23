@@ -2,7 +2,9 @@
 
 <ol>
 	<% @tags.each do |tag| %>
-	<li><%=tag.name%></li>
+	<li><%=tag.name%> 
+	    <%= link_to 'Destroy', tag, :method => :delete, :confirm => 'Are you sure?'%> 
+	</li>
 	<%end%>
 </ol>
 
@@ -13,3 +15,5 @@
 	<%= form.submit "Create" %> 
 	<% end %>
 </div>
+
+<%= link_to 'Back', posts_path%>  

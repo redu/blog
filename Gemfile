@@ -9,7 +9,11 @@ gem 'sqlite3'
 
 gem 'json'
 
+# Devise (autenticação)
 gem 'devise'
+
+# Gem necessária para configuração do Action Mailer
+gem 'tlsmail'
 
 # Gems used only for assets and not required
 # in production environments by default.

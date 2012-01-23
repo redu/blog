@@ -8,11 +8,28 @@ class TagsController < ApplicationController
 	end
 
 	def create
-		@tags = Tag.new(params[:tag])
+		@tags = Tag.all
+		@tag = Tag.new(params[:tag])
 		respond_to do |format|
-		 if @tags.save
-		 else
-		 end
-		end 
+		
+		@tags = @tags.map { |tag| tag.name }	
+		unless @tags.include?(@tag.name)
+			if @tag.save
+				format.html { redirect_to :action => :index }
+			end
+		end
+			@tags = Tag.all
+			@tags_new = Tag.new
+			flash.now[:notice] = 'This tag already exists'
+			format.html { render :action => :index }
+		end
+	end
+
+	def destroy
+		@tag = Tag.find(params[:id])
+		@tag.destroy
+		respond_to do |format|
+		  format.html {redirect_to :action => :index}
+		end
 	end
 end
