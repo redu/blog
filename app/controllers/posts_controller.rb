@@ -52,6 +52,14 @@ class PostsController < ApplicationController
       end
     end
 
+	def feed
+		@posts = Post.order
+		respond_to do |format|
+			format.rss {render :layout => false } #feed.rss.builder
+			format.json {renter :layout => false}
+		end
+	end
+
     # FIXME: melhorar busca!
     def search
       @posts = Post.search params[:search]
