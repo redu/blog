@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 
-	before_filter :authenticate_user!, :except => [:index, :show]
+	before_filter :authenticate_user!, :except => [:index, :show, :search]
 
 	def index
 		@posts = Post.all
@@ -62,7 +62,6 @@ class PostsController < ApplicationController
 
     # FIXME: melhorar busca!
     def search
-      @posts = Post.all.collect.find_all{|post| post.body.downcase.include? params[:search].downcase or post.title.downcase.include? params[:search].downcase}
-
+      @posts = Post.search params[:search]
     end
 end

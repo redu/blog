@@ -44,5 +44,11 @@ module Blog
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    # Add stop-word list
+    if File.exists?("#{Rails.root}/lib/stop_words/words.yml")
+      config.stop_words = YAML.load_file("#{Rails.root}/lib/stop_words/words.yml")
+    end
+
   end
 end
