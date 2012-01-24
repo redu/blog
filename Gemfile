@@ -2,6 +2,8 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.1.3'
 
+gem 'redcarpet'
+
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
@@ -14,6 +16,9 @@ gem 'devise'
 
 # Gem necessária para configuração do Action Mailer
 gem 'tlsmail'
+
+# Mercury WYSIWYG editor
+gem 'mercury-rails', :git => 'https://github.com/jejacks0n/mercury.git', :ref => 'a2b16bcdc9'
 
 # Gems used only for assets and not required
 # in production environments by default.

@@ -56,4 +56,13 @@ class PostsController < ApplicationController
     def search
       @posts = Post.search params[:search]
     end
+
+    def mercury_update
+		post = Post.find(params[:id])
+		post.title = params[:content][:post_title][:value]
+		post.body = params[:content][:post_body][:value]
+		post.save
+		render :text => ""
+	end
+
 end

@@ -1,24 +1,38 @@
 Blog::Application.routes.draw do
+
+  Mercury::Engine.routes
+
+  # Define rotas do devise para o recurso users
   devise_for :users
 
+  # Redireciona as actions login e logut para as devidas actions do Devise
 	devise_scope :user do
 		get "login", :to => "devise/sessions#new"
 		get "logout", :to => "devise/sessions#destroy"
 	end
 
-  #ActiveAdmin.routes(self)
-
+  # Outras opções para autenticação com Devise
   #devise_for :admin_users, ActiveAdmin::Devise.config
+  
+  # Bloco de definição de rotas para o recurso posts.
   resources :posts do
+
+  member { post :mercury_update }
+
   	collection do
  	  get 'search'
   	end
+  
   end
   	
   # new, edit, show, index, create, destroy,  update
   root :to => "posts#index"
 
+  # Define as rotas (CRUD) para o recurso tags
   resources :tags
+
+  #ActiveAdmin.routes(self)
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
