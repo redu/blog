@@ -4,6 +4,10 @@ class PostsController < ApplicationController
 
 	def index
 		@posts = Post.all
+		respond_to do | format |
+			format.html
+			format.rss {render :layout => false } #feed.rss.builder
+		end
 	end
 
     def new
@@ -56,14 +60,6 @@ class PostsController < ApplicationController
       format.html # show.html.erb
     end
   end
-
-	def feed
-		@posts = Post.order
-		respond_to do |format|
-			format.rss {render :layout => false } #feed.rss.builder
-			format.json {renter :layout => false}
-		end
-	end
 
   # FIXME: melhorar busca!
   def search
