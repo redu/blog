@@ -14,6 +14,9 @@ gem 'json'
 gem 'activeadmin', '~> 0.3.2'
 gem "meta_search",    '>= 1.1.0.pre'
 
+# RedCarpet
+gem 'redcarpet'
+
 # Devise (autenticação)
 gem 'devise'
 
