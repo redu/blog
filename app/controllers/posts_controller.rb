@@ -4,6 +4,7 @@ class PostsController < ApplicationController
 
 	def index
 		@posts = Post.all
+		@tags = Tag.all
 	end
 
     def new
@@ -70,4 +71,7 @@ class PostsController < ApplicationController
     @posts = Post.search params[:search]
   end
 
+  def search_tags
+    @posts = Tag.find(params[:id]).posts
+  end
 end

@@ -1,4 +1,11 @@
 <h1> Listing Posts </h1>
+
+<ul>
+<% @tags.each do |tag| %>
+	<li><%= link_to tag.name,  {:id => tag.id, :controller => :posts, :action => "search_tags" } %></li>
+<% end %>
+</ul>
+
 <ul>
 <% @posts.each do |post| %>
 	<li><%= link_to post.title, post %></li>

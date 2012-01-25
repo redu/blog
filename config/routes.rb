@@ -21,8 +21,8 @@ Blog::Application.routes.draw do
 
   	collection do
  	  get 'search'
+	  get 'search_tags'
   	end
-  
   end
   	
   # new, edit, show, index, create, destroy,  update
