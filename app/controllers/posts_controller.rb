@@ -64,7 +64,6 @@ class PostsController < ApplicationController
     end
   end
 
-  # FIXME: melhorar busca!
   def search
     @posts = Post.search params[:search]
   end

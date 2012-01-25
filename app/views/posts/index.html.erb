@@ -1,28 +1,38 @@
+<div style="margin: 0 50px 0 35px">
+
 <h1> Listing Posts </h1>
 
-<ul>
-<% @tags.each do |tag| %>
-	<li><%= link_to tag.name,  {:id => tag.id, :controller => :posts, :action => "search_tags" } %></li>
-<% end %>
-</ul>
+<div style="float:right; margin-right:100px">
+  <h2>Tag List</h2>
+  <ul>
+    <%@tags.find_all {|tag| tag.posts.size > 0}.each do |tag_list|  %>
+      <li><%= link_to tag_list.name, {:id => tag_list.id, :controller => :posts, :action => 'search_tags'} %></li>
+    <% end %>
+  </ul>
+</div>
 
-<ul>
-<% @posts.each do |post| %>
-	<li><%= link_to post.title, post %></li>
-<% end %>
-</ul>
+<div>
+  <h2>Last Post's</h2>
+  <ul>
+  <% @posts.each do |post| %>
+	  <li><%= link_to post.title, post %></li>
+  <% end %>
+  </ul>
+</div>
 
+<div style="padding-bottom: 20px">
 <% if user_signed_in? %>
-	<%= link_to 'New post', new_post_path %> || 
-	<%= link_to 'Logout', destroy_user_session_path, :method => :delete %> || 
-	<%= link_to 'Tags', tags_path %>
+  <b><%= link_to 'New post', new_post_path %></b> ||
+  <b><%= link_to 'Logout', destroy_user_session_path, :method => :delete %></b> ||
+  <b><%= link_to 'Tags', tags_path %></b>
 <% else %>
-	<%= link_to 'Login', new_user_session_path %>
+  <b><%= link_to 'Login', new_user_session_path %></b>
 <% end %>
-<br />
+</div>
 <div>
   <%= form_tag "posts/search", :method => 'get' do %>
     <%= text_field_tag :search, params[:search] %>
     <%= submit_tag "Search posts", :name => nil %>
   <% end %>
+</div>
 </div>

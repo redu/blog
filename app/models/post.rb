@@ -19,7 +19,6 @@ class Post < ActiveRecord::Base
 
     # Atualiza as tags relacionadas ao post
     def update_tags(tags_id)
-      #FIXME: otimizar
       self.tags = []
       unless tags_id == nil
         tags_id[:id].each {|new_tag| self.tags << Tag.find(new_tag)}
