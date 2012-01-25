@@ -17,8 +17,11 @@ gem 'devise'
 # Gem necessária para configuração do Action Mailer
 gem 'tlsmail'
 
-# Mercury WYSIWYG editor
-gem 'mercury-rails', :git => 'https://github.com/jejacks0n/mercury.git', :ref => 'a2b16bcdc9'
+# Formatação do texto da postagem
+gem 'ckeditor', '3.7.0.rc2'
+
+# CKEditor >> "for active_record orm"
+gem 'paperclip'
 
 # Gems used only for assets and not required
 # in production environments by default.

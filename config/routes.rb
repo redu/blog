@@ -1,6 +1,6 @@
 Blog::Application.routes.draw do
 
-  Mercury::Engine.routes
+  mount Ckeditor::Engine => '/ckeditor'
 
   # Define rotas do devise para o recurso users
   devise_for :users
@@ -16,8 +16,6 @@ Blog::Application.routes.draw do
   
   # Bloco de definição de rotas para o recurso posts.
   resources :posts do
-
-  member { post :mercury_update }
 
   	collection do
  	  get 'search'

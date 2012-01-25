@@ -1,16 +1,18 @@
 
-<h1><span id='post_title' class='mercury-region' data-type='editable'>
-	<%= raw @post.title %>
-</span></h1>
-<br />
-<div id='post_body' class='mercury-region' data-type='editable'>
-	<%= raw @post.body %>
-</div>
+<h1><%= raw @post.title %></h1>
+<p><%= raw @post.body %></p>
 
-<br />
+<p>Tags: 
+<% @tags.each do |tag| %>
+	<%= tag.name %>
+<% end %>
+</p>
+
 <div id="options">
-  <%= link_to 'Edit', ("/editor" + request.path), :id => "edit_link", :data => { :save_url => mercury_update_post_path(@post), :post_title => @post.title} %> |
+<% if user_signed_in? %>
+  <%= link_to 'Edit', edit_post_path %> |
   <%= link_to 'Delete', [@post], :method => :delete, :confirm => 'Delete?' %>
+<% end %>
 </div>
 <br />
 
