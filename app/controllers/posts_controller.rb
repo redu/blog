@@ -8,6 +8,7 @@ class PostsController < ApplicationController
 
     def new
       @post = Post.new
+      @tag = Tag.all
       respond_to do |format|
         format.html  # new.html.erb
       end
@@ -15,10 +16,18 @@ class PostsController < ApplicationController
 
     def create
       @post = Post.new(params[:post])
+      @tag = Tag.all
+      tags_checked = params[:tags_post].collect
+      tags_checked.each do |tag_checked|
+        @post.tags<<Tag.find(tag_checked)
+      end
+
       respond_to do |format|
         if @post.save
           format.html { redirect_to @post }
         else
+	  flash.now[:notice] = params[:tags_post]
+	  flash.now[:alert] = params[:post]
           format.html { render :action => 'new' }
         end
       end
@@ -26,10 +35,17 @@ class PostsController < ApplicationController
 
     def edit
       @post = Post.find(params[:id])
+      @tag = Tag.all
     end
 
     def update
       @post = Post.find(params[:id])
+      @tag = Tag.all
+      tags_checked = params[:tags_post].collect
+      tags_checked.each do |tag_checked|
+        @post.tags<<Tag.find(tag_checked)
+      end
+
       respond_to do |format|
         if @post.update_attributes(params[:post])
           format.html { redirect_to @post }

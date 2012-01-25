@@ -11,6 +11,17 @@
   </div>
 
   <div>
+    <% @tag.each do |tag| %>
+	<%= check_box_tag 'tags_post[]', tag.id%>
+	<%= form.label (tag.name) %>
+    <% end %>
+  </div>
+
+  <div>
+       <%= select ("tag", 'collect', @tag.collect {|t| [t.name, t.id]}, {:include_blank => true}) %> 
+  </div>
+
+  <div>
     <%= form.submit %>
   </div>
 
