@@ -4,9 +4,6 @@ Blog::Application.routes.draw do
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 
-
-  mount Ckeditor::Engine => '/ckeditor'
-
   # Define rotas do devise para o recurso users
   devise_for :users
 
