@@ -8,6 +8,7 @@ class PostsController < ApplicationController
 
     def new
       @post = Post.new
+      @post.tags.build
       respond_to do |format|
         format.html  # new.html.erb
       end
@@ -15,6 +16,7 @@ class PostsController < ApplicationController
 
     def create
       @post = Post.new(params[:post])
+      @post.update_tags(params[:tag])
       respond_to do |format|
         if @post.save
           format.html { redirect_to @post }
@@ -26,12 +28,14 @@ class PostsController < ApplicationController
 
     def edit
       @post = Post.find(params[:id])
+      @post.tags.build
     end
 
     def update
       @post = Post.find(params[:id])
       respond_to do |format|
         if @post.update_attributes(params[:post])
+          @post.update_tags params[:tag]
           format.html { redirect_to @post }
         else
           format.html { render :action => 'edit' }

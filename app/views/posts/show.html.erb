@@ -2,7 +2,14 @@
 
 <p><%= @post.body %></p>
 
-<br />
+<% if @post.tags.size > 0 %>
+  <h3>Tags:</h3>
+  <ul>
+  <% @post.tags.all.collect do |tag| %>
+    <li><%= tag.name %></li>
+  <% end %>
+  </ul><br />
+<% end %>
 <div id="options">
   <%= link_to 'Edit', edit_post_path(@post) %> |
   <%= link_to 'Delete', [@post], :method => :delete, :confirm => 'Delete?' %>
