@@ -6,7 +6,8 @@ class Post < ActiveRecord::Base
 
 	belongs_to :user
 	has_and_belongs_to_many :tags
- 
+    accepts_nested_attributes_for :tags
+
 	# TODO confirmar a obrigatoriedade da existência de um título para postagem
 	# TODO confirmar o tamanho máximo permitido para o título de um post
 	validates :title, :presence => true, :length => { :maximum => 140 }
@@ -16,6 +17,15 @@ class Post < ActiveRecord::Base
 
 	# TODO viabilizar a validação da associação post-user (usuário deve existir)
 
+    # Atualiza as tags relacionadas ao post
+    def update_tags(tags_id)
+      #FIXME: otimizar
+      self.tags = []
+      unless tags_id == nil
+        tags_id[:id].each {|new_tag| self.tags << Tag.find(new_tag)}
+      end
+      self.save
+    end
 
     def self.search query
       result_posts = []

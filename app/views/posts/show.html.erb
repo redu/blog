@@ -2,11 +2,14 @@
 <h1><%= raw @post.title %></h1>
 <p><%= raw @post.body %></p>
 
-<p>Tags: 
-<% @tags.each do |tag| %>
-	<%= tag.name %>
+<% if @post.tags.size > 0 %>
+  <h3>Tags:</h3>
+  <ul>
+  <% @post.tags.all.collect do |tag| %>
+    <li><%= tag.name %></li>
+  <% end %>
+  </ul><br />
 <% end %>
-</p>
 
 <div id="options">
 <% if user_signed_in? %>
