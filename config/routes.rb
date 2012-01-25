@@ -1,5 +1,9 @@
 Blog::Application.routes.draw do
 
+  ActiveAdmin.routes(self)
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+
   Mercury::Engine.routes
 
   # Define rotas do devise para o recurso users
@@ -12,7 +16,7 @@ Blog::Application.routes.draw do
 	end
 
   # Outras opções para autenticação com Devise
-  #devise_for :admin_users, ActiveAdmin::Devise.config
+  #devise_for :admin_users, ActiveAdmin::Devise.config, ActiveAdmin::Devise.config
   
   # Bloco de definição de rotas para o recurso posts.
   resources :posts do
