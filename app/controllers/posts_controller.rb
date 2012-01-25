@@ -6,54 +6,42 @@ class PostsController < ApplicationController
 		@posts = Post.all
 	end
 
-  def new
-    @post = Post.new
-    @tag = Tag.all
-    respond_to do |format|
-      format.html  # new.html.erb
-    end
-  end
-
-  def create
-    @post = Post.new(params[:post])
-    @tag = Tag.all
-    tags_checked = params[:tags_post].collect
-    tags_checked.each do |tag_checked|
-      @post.tags << Tag.find(tag_checked)
-    end
-
-    respond_to do |format|
-      if @post.save
-        format.html { redirect_to @post }
-      else
-  flash.now[:notice] = params[:tags_post]
-  flash.now[:alert] = params[:post]
-        format.html { render :action => 'new' }
+    def new
+      @post = Post.new
+      @post.tags.build
+      respond_to do |format|
+        format.html  # new.html.erb
       end
     end
-  end
 
-  def edit
-    @post = Post.find(params[:id])
-    @tag = Tag.all
-  end
-
-  def update
-    @post = Post.find(params[:id])
-    @tag = Tag.all
-    tags_checked = params[:tags_post].collect
-    tags_checked.each do |tag_checked|
-      @post.tags << Tag.find(tag_checked)
-    end
-
-    respond_to do |format|
-      if @post.update_attributes(params[:post])
-        format.html { redirect_to @post }
-      else
-        format.html { render :action => 'edit' }
+    def create
+      @post = Post.new(params[:post])
+      @post.update_tags(params[:tag])
+      respond_to do |format|
+        if @post.save
+          format.html { redirect_to @post }
+        else
+          format.html { render :action => 'new' }
+        end
       end
     end
-  end
+
+    def edit
+      @post = Post.find(params[:id])
+      @post.tags.build
+    end
+
+    def update
+      @post = Post.find(params[:id])
+      respond_to do |format|
+        if @post.update_attributes(params[:post])
+          @post.update_tags params[:tag]
+          format.html { redirect_to @post }
+        else
+          format.html { render :action => 'edit' }
+        end
+      end
+    end
 
   def destroy
     @post = Post.find(params[:id])

@@ -4,6 +4,7 @@ class TagsController < ApplicationController
 		@tags_new = Tag.new
 		respond_to do |format_tag|
  			format_tag.html
+            format_tag.json {render :json => @tags.collect {|tag| tag.name}}
 		end
 	end
 
@@ -11,8 +12,8 @@ class TagsController < ApplicationController
 		@tags = Tag.all
 		@tag = Tag.new(params[:tag])
 		respond_to do |format|
-		
-		@tags = @tags.map { |tag| tag.name }	
+
+		@tags = @tags.map { |tag| tag.name }
 		unless @tags.include?(@tag.name)
 			if @tag.save
 				format.html { redirect_to :action => :index }
