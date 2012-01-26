@@ -24,7 +24,7 @@
 	  <li>
 		<span><%= post.created_at.to_datetime.strftime("%d %b %y")%></span>
 	  	<h3><%= link_to post.title, post %></h3>, 
-		<span> por <%= post.user.username %>,<%= post.created_at.to_datetime.strftime(" às %H:%M")%></span>	
+		<span> por <%= getUsername(post) %>,<%= post.created_at.to_datetime.strftime(" às %H:%M")%></span>	
 		<% post.tags.each do |tag| %>
 			<%= link_to tag.name, {:id => tag.id, :action => "search_tags"}%>
 		<% end %>
