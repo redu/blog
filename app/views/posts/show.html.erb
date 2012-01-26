@@ -1,5 +1,5 @@
 <% markparser = Redcarpet::Markdown.new(Redcarpet::Render::HTML,
-        :autolink => true, :space_after_headers => true) %>
+        :autolink => true, :space_after_headers => false) %>
         
 <h1><%= raw @post.title %></h1>
 <%= raw markparser.render(@post.body) %>
