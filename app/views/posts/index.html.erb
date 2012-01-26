@@ -19,7 +19,10 @@
   <h2>Last Post's</h2>
   <ul>
   <% @posts.each do |post| %>
-	  <li><%= link_to post.title, post %></li>
+	  <li>
+	  	<%= link_to post.title, post %>, by
+	  	<%= User.find(post.user_id).email %>
+	  </li>
   <% end %>
   </ul>
 </div>

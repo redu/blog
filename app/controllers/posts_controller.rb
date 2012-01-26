@@ -24,6 +24,7 @@ class PostsController < ApplicationController
     def create
       @post = Post.new(params[:post])
       @post.update_tags(params[:tag])
+      @post.user_id = current_user.id
       respond_to do |format|
         if @post.save
           format.html { redirect_to @post }
