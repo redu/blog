@@ -1,3 +1,5 @@
+<% markparser = Redcarpet::Markdown.new(Redcarpet::Render::HTML,
+        :autolink => true, :space_after_headers => false) %>
 <div style="margin: 0 50px 0 35px">
 
 <h1> Listing Posts </h1>
@@ -20,8 +22,15 @@
   <ul>
   <% @posts.each do |post| %>
 	  <li>
-	  	<%= link_to post.title, post %>, by
-	  	<%= User.find(post.user_id).username %>
+		<span><%= post.created_at.to_datetime.strftime("%d %b %y")%></span>
+	  	<h3><%= link_to post.title, post %></h3>, 
+		<span> por <%= post.user.username %>,<%= post.created_at.to_datetime.strftime(" às %H:%M")%></span>	
+		<% post.tags.each do |tag| %>
+			<%= link_to tag.name, {:id => tag.id, :action => "search_tags"}%>
+		<% end %>
+		
+		<div><%=raw markparser.render(truncate (post.body, :length => 130, :separator => ' ', :omission => ' ...')) %></div>
+		<div><%= link_to "+ Leia mais", post %></div>
 	  </li>
   <% end %>
   </ul>
