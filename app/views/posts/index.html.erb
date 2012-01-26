@@ -21,12 +21,7 @@
   <% @posts.each do |post| %>
 	  <li>
 	  	<%= link_to post.title, post %>, by
-	  	<% 	begin
-						poster = User.find(post.user_id).username
-					rescue ActiveRecord::RecordNotFound
-						poster = 'Desconhecido'
-					end %>
-	  	<%= poster %>
+	  	<%= getUsername(post) %>
 	  </li>
   <% end %>
   </ul>
