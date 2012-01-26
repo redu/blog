@@ -1,6 +1,6 @@
 <% markparser = Redcarpet::Markdown.new(Redcarpet::Render::HTML,
         :autolink => true, :space_after_headers => false) %>
-        
+<h3> blog / post </h3>
 <h1><%= raw @post.title %></h1>
 <%= raw markparser.render(@post.body) %>
 

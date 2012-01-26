@@ -72,4 +72,8 @@ class PostsController < ApplicationController
   def search_tags
     @posts = Tag.find(params[:id]).posts
   end
+
+  def archive
+
+  end
 end
