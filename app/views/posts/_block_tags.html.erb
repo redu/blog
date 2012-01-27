@@ -1,0 +1,10 @@
+<div id="tags">
+  <h2>Tag List</h2>
+  <h3>
+    <ul>
+      <%@tags.find_all {|tag| tag.posts.size > 0}.each do |tag_list|  %>
+        <li><%= link_to tag_list.name, {:id => tag_list.id, :controller => :posts, :action => 'search_tags'} %></li>
+      <% end %>
+    </ul>
+  </h3>
+</div>

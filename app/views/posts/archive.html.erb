@@ -1,0 +1,40 @@
+<div style="margin: 0 50px 0 35px">
+
+  <h1> Listing Posts </h1>
+
+  <a href="/posts.rss">
+    <img src="/assets/feed.jpg" alt="HTML tutorial" width="32" height="32" align="right"/>
+  </a>
+
+  <div style="float:right; margin-right:100px">
+    <%= render 'block_tags' %>
+    <%= render 'block_archive' %>
+  </div>
+  <div>
+    <h2>Posts of <%= month_name(params[:month].to_i) %></h2>
+    <ul>
+      <% @posts.each do |post| %>
+        <li>
+          <%= link_to post.title, post %>, by
+          <%= User.find(post.user_id).username %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div style="padding-bottom: 20px">
+    <% if user_signed_in? %>
+      <b><%= link_to 'New post', new_post_path %></b> ||
+      <b><%= link_to 'Logout', destroy_user_session_path, :method => :delete %></b> ||
+      <b><%= link_to 'Tags', tags_path %></b>
+    <% else %>
+      <b><%= link_to 'Login', new_user_session_path %></b>
+    <% end %>
+  </div>
+  <div>
+    <%= form_tag "posts/search", :method => 'get' do %>
+      <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag "Search posts", :name => nil %>
+    <% end %>
+  </div>
+</div>

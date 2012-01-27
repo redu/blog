@@ -1,0 +1,14 @@
+<div id="archive" style='margin-bottom: 40px'>
+  <h2>Arquivos</h2>
+  <!--#FIXME: Devo Mudar lógica para o model? -->
+  <%
+    hash_archive = Post.all(:order => 'created_at DESC')
+    group_years = hash_archive.group_by{ |p| p.created_at.year}
+  %>
+  <% group_years.keys.each do |key| %>
+    <h3 style="margin:0.5em 0 0.5em 0"><%= key %></h3>
+    <% group_years[key].group_by { |post| post.created_at.month}.keys.each do |month| %>
+      <h4 style='margin: 0 0 5px 0'><%= link_to month_name(month), {:controller => :posts, :action => 'archive', :year=>key, :month => month} %></h4>
+    <% end %>
+  <% end %>
+</div>

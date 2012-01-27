@@ -7,39 +7,17 @@
 </a>
 
 <div style="float:right; margin-right:100px">
-  <div id="tags">
-    <h2>Tag List</h2>
-    <h3>
-      <ul>
-        <%@tags.find_all {|tag| tag.posts.size > 0}.each do |tag_list|  %>
-          <li><%= link_to tag_list.name, {:id => tag_list.id, :controller => :posts, :action => 'search_tags'} %></li>
-        <% end %>
-      </ul>
-    </h3>
-  </div>
-  <div id="archive">
-    <h2>Arquivos</h2>
-    <!--#FIXME: Mudar lógica para model -->
-    <%
-      hash_archive = Post.all(:order => 'created_at DESC')
-      group_years = hash_archive.group_by{ |p| p.created_at.year}
-    %>
-    <% group_years.keys.each do |key| %>
-      <h3><%= key %></h3>
-      <% group_years[key].group_by { |p| p.created_at.month}.keys.each do |month| %>
-        <h4><%= month %></h4>
-      <% end %>
-    <% end %>
-  </div>
+  <%= render 'block_tags' %>
+  <%= render 'block_archive' %>
 </div>
 <div>
   <h2>Last Posts</h2>
   <ul>
   <% @posts.each do |post| %>
-	  <li>
-	  	<%= link_to post.title, post %>, by
-	  	<%= User.find(post.user_id).username %>
-	  </li>
+    <li>
+      <%= link_to post.title, post %>, by
+      <%= User.find(post.user_id).username %>
+    </li>
   <% end %>
   </ul>
 </div>
