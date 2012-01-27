@@ -23,9 +23,8 @@
 		<% post.tags.each do |tag| %>
 			<%= link_to tag.name, {:id => tag.id, :action => "search_tags"}%>
 		<% end %>
-
-		<div><%=raw markparser.render(truncate (post.body, :length => 130, :separator => ' ', :omission => ' ...')) %></div>
-		<div><%= link_to "+ Leia mais", post %></div>
+		<div><%=raw markparser.render(truncate (truncate_html(post.body , 250, "")), :length => 30000 ,:separator => " ", :omission => " ..." )%></div>
+		<span><%= link_to "+ Leia mais", post %></span>
 	  </li>
   <% end %>
   </ul>
