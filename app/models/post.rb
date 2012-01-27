@@ -1,21 +1,21 @@
 class Post < ActiveRecord::Base
 
-	def to_param
-		"#{id} #{title}".parameterize
-	end
+    def to_param
+      "#{id} #{title}".parameterize
+    end
 
-	belongs_to :user
-	has_and_belongs_to_many :tags
+    belongs_to :user
+    has_and_belongs_to_many :tags
     accepts_nested_attributes_for :tags
 
-	# TODO confirmar a obrigatoriedade da existência de um título para postagem
-	# TODO confirmar o tamanho máximo permitido para o título de um post
-	validates :title, :presence => true, :length => { :maximum => 140 }
+    # TODO confirmar a obrigatoriedade da existência de um título para postagem
+    # # TODO confirmar o tamanho máximo permitido para o título de um post
+    validates :title, :presence => true, :length => { :maximum => 140 }
 
-	# valida o corpo da postagem (deve existir e não possui limite de tamanho)
-	validates :body, :presence => true
+    # valida o corpo da postagem (deve existir e não possui limite de tamanho)
+    validates :body, :presence => true
 
-	# TODO viabilizar a validação da associação post-user (usuário deve existir)
+    # TODO viabilizar a validação da associação post-user (usuário deve existir)
 
     # Atualiza as tags relacionadas ao post
     def update_tags(tags_id)
@@ -58,6 +58,18 @@ class Post < ActiveRecord::Base
         end
       end
       relevant_terms
+    end
+
+    def self.filter_archive(year, month)
+      if year == nil and month == nil
+        Post.all(:order => 'created_at DESC')
+      elsif month == nil
+        Post.all(:order=>"created_at DESC").group_by { |t| t.created_at.year.to_s}[year.to_s]
+      elsif year == nil
+          Post.all(:order=>"created_at DESC").group_by { |t| t.created_at.month.to_s}[month.to_s]
+      else
+        Post.all(:order=>"created_at DESC").group_by { |t| t.created_at.year.to_s + '.' +t.created_at.month.to_s}[year.to_s+'.'+month.to_s]
+      end
     end
 
 end

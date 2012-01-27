@@ -9,26 +9,21 @@
 </a>
 
 <div style="float:right; margin-right:100px">
-  <h2>Tag List</h2>
-  <ul>
-    <%@tags.find_all {|tag| tag.posts.size > 0}.each do |tag_list|  %>
-      <li><%= link_to tag_list.name, {:id => tag_list.id, :controller => :posts, :action => 'search_tags'} %></li>
-    <% end %>
-  </ul>
+  <%= render 'block_tags' %>
+  <%= render 'block_archive' %>
 </div>
-
 <div>
-  <h2>Last Post's</h2>
+  <h2>Last Posts</h2>
   <ul>
   <% @posts.each do |post| %>
 	  <li>
 		<span><%= post.created_at.to_datetime.strftime("%d %b %y")%></span>
-	  	<h3><%= link_to post.title, post %></h3>, 
-		<span> por <%= getUsername(post) %>,<%= post.created_at.to_datetime.strftime(" às %H:%M")%></span>	
+	  	<h3><%= link_to post.title, post %></h3>,
+		<span> por <%= getUsername(post) %>,<%= post.created_at.to_datetime.strftime(" às %H:%M")%></span>
 		<% post.tags.each do |tag| %>
 			<%= link_to tag.name, {:id => tag.id, :action => "search_tags"}%>
 		<% end %>
-		
+
 		<div><%=raw markparser.render(truncate (post.body, :length => 130, :separator => ' ', :omission => ' ...')) %></div>
 		<div><%= link_to "+ Leia mais", post %></div>
 	  </li>

@@ -15,16 +15,17 @@ Blog::Application.routes.draw do
 
   # Outras opções para autenticação com Devise
   #devise_for :admin_users, ActiveAdmin::Devise.config, ActiveAdmin::Devise.config
-  
+
   # Bloco de definição de rotas para o recurso posts.
   resources :posts do
 
   	collection do
  	  get 'search'
 	  get 'search_tags'
+      get 'archive'
   	end
   end
-  	
+
   # new, edit, show, index, create, destroy,  update
   root :to => "posts#index"
 

@@ -1,0 +1,28 @@
+<div style="margin: 0 50px 0 35px">
+
+  <h1> Listing Posts </h1>
+
+  <a href="/posts.rss">
+    <img src="/assets/feed.jpg" alt="HTML tutorial" width="32" height="32" align="right"/>
+  </a>
+
+  <div style="float:right; margin-right:100px">
+    <%= render 'block_tags' %>
+    <%= render 'block_archive' %>
+  </div>
+  <div>
+    <h2>Posts of <%= month_name(params[:month].to_i) %></h2>
+    <ul>
+      <% @posts.each do |post| %>
+        <li>
+          <%= link_to post.title, post %>, by
+          <%= User.find(post.user_id).username %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div style="padding-bottom: 20px">
+    <%= link_to 'Back', posts_path %>
+  </div>
+</div>

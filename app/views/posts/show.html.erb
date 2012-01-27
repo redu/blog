@@ -2,7 +2,8 @@
         :autolink => true, :space_after_headers => false) %>
 
 <span><%= @post.created_at.to_datetime.strftime("%d %b %y")%></span>
-        
+
+<h3> blog / post </h3>
 <h1><%= raw @post.title %></h1>
 
 <span> por <%= @post.user.username %>,<%= @post.created_at.to_datetime.strftime("às %H:%M")%></span>
