@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 
-  before_filter :authenticate_user!, :except => [:index, :show, :search, :search_tags, :archive]
+  before_filter :authenticate_user!, :except => [:index, :show, :search, :archive]
 
   def index
     @posts = params[:tag_id] ? Tag.find(params[:tag_id]).posts: Post.all
@@ -66,10 +66,6 @@ class PostsController < ApplicationController
 
   def search
     @posts = Post.search params[:search]
-  end
-
-  def search_tags
-    @posts = Tag.find(params[:id]).posts
   end
 
   def archive

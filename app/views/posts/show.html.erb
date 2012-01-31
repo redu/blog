@@ -14,7 +14,7 @@
   <h3>Tags:</h3>
   <ul>
   <% @post.tags.all.collect do |tag| %>
-    <li><%= link_to tag.name, {:action => "search_tags", :id => tag.id} %></li>
+    <li><%= link_to tag.name, tag_posts_path(tag)%></li>
   <% end %>
   </ul><br />
 <% end %>

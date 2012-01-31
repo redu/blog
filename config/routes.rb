@@ -20,8 +20,7 @@ Blog::Application.routes.draw do
   resources :posts do
 
   	collection do
- 	  get 'search'
-	  get 'search_tags'
+ 	    get 'search'
       get 'archive'
   	end
   end
