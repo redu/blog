@@ -4,14 +4,10 @@ class Post < ActiveRecord::Base
   has_and_belongs_to_many :tags
   accepts_nested_attributes_for :tags
 
-  # TODO confirmar a obrigatoriedade da existência de um título para postagem
-  # # TODO confirmar o tamanho máximo permitido para o título de um post
   validates :title, :presence => true, :length => { :maximum => 140 }
 
   # valida o corpo da postagem (deve existir e não possui limite de tamanho)
   validates :body, :presence => true
-
-  # TODO viabilizar a validação da associação post-user (usuário deve existir)
 
   # Atualiza as tags relacionadas ao post
   def update_tags(tags_id)

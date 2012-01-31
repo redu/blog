@@ -3,10 +3,10 @@ class PostsController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show, :search, :search_tags, :archive]
 
   def index
-    @posts = Post.all
+    @posts = params[:tag_id] ? Tag.find(params[:tag_id]).posts: Post.all
     @tags = Tag.all
       respond_to do |format|
-        format.html
+        format.html {render :layout => params[:tag_id] ? 'tag' : true}
         format.rss {render :layout => false } #feed.rss.builder
       end
   end

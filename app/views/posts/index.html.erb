@@ -21,7 +21,7 @@
 	  	<h3 style="display:inline"><%= link_to post.title, post %></h3>,
 		<span> por <%= getAuthor(post) %>,<%= post.created_at.to_datetime.strftime(" às %H:%M")%></span>
 		<% post.tags.each do |tag| %>
-			<%= link_to tag.name, {:id => tag.id, :action => "search_tags"}%>
+			<%= link_to tag.name, tag_posts_path(tag) %>
 		<% end %>
 		<div><%=raw markparser.render(truncate (truncate_html(post.body , 250, "")), :length => 30000 ,:separator => " ", :omission => " ..." )%></div>
 		<span><%= link_to "+ Leia mais", post %></span>
@@ -40,7 +40,7 @@
 <% end %>
 </div>
 <div>
-  <%= form_tag "posts/search", :method => 'get' do %>
+  <%= form_tag "/posts/search", :method => 'get' do %>
     <%= text_field_tag :search, params[:search] %>
     <%= submit_tag "Search posts", :name => nil %>
   <% end %>
