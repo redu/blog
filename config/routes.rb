@@ -5,7 +5,7 @@ Blog::Application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
 
   # Define rotas do devise para o recurso users
-  devise_for :users
+  devise_for :users, :skip => :registrations
 
   # Redireciona as actions login e logut para as devidas actions do Devise
 	devise_scope :user do
