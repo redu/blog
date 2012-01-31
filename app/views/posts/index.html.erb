@@ -33,8 +33,7 @@
 <div style="padding-bottom: 20px">
 <% if user_signed_in? %>
   <b><%= link_to 'New post', new_post_path %></b> ||
-  <b><%= link_to 'Logout', destroy_user_session_path, :method => :delete %></b> ||
-  <b><%= link_to 'Tags', tags_path %></b>
+  <b><%= link_to 'Logout', destroy_user_session_path, :method => :delete %></b>
 <% else %>
   <b><%= link_to 'Login', new_user_session_path %></b>
 <% end %>
