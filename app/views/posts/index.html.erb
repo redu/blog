@@ -19,7 +19,7 @@
 	  <li style="margin: 20px 0 10px 0; ">
             <span style="display:block"><%=  l post.created_at.to_datetime,:format => ("%d %b %y")%></span>
 	  	<h3 style="display:inline"><%= link_to post.title, post %></h3>,
-		<span> por <%= getUsername(post) %>,<%= post.created_at.to_datetime.strftime(" às %H:%M")%></span>
+		<span> por <%= getAuthor(post) %>,<%= post.created_at.to_datetime.strftime(" às %H:%M")%></span>
 		<% post.tags.each do |tag| %>
 			<%= link_to tag.name, {:id => tag.id, :action => "search_tags"}%>
 		<% end %>

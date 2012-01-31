@@ -1,24 +1,30 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :trackable, :recoverable, :registerable, :rememberable, :confirmable
+  devise :database_authenticatable, :trackable, :recoverable, :registerable, 
+  	:rememberable, :confirmable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :description
+  attr_accessible :email, :password, :password_confirmation, :remember_me, 
+  	:username, :description, :profile_link
 	
+	# associa usuario a suas postagens
 	has_many :posts
 
-	# verifica se foi informado um email para o usuario
-	# possivelmente validates_format_of invalidaria um email inexistente
-	# portanto, mantive o codigo abaixo apenas para finalidade de informação
-	validates :email, :presence  => true
-
-	# valida o formato de email
-	# validates_format_of :email, :with => /\A[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]+\z/, :on => :create
+	# valida email
+	# validates :email, :presence  => true
 	validates_format_of :email, :with => /\A[A-Za-z0-9._%+-]+@redu.com.br/
 
-	# verifica a existência de uma senha de usuário e valida seu tamanho
-	# TODO confirmar o tamanho mínimo aceitável para senha
-	validates :password, 	:presence => true,
-							:length => { :minimum => 5 }
+	# valida senha
+	validates :password, :length => { :minimum => 5 }
+							
+	# valida descricao
+	validates :description, :length => 50..90
+	
+	# valida link do perfil Redu
+	validates :profile_link, :presence => true
+	validates_format_of :profile_link, 
+							:with => /http:\/\/[www.]*redu.com.br\/pessoas\/[a-zA-Z_0-9]+/,
+							:message => '(é necessário informar um link de perfil válido)'
+	
 end

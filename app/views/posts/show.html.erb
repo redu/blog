@@ -6,7 +6,7 @@
 <h3> blog / post </h3>
 <h1><%= raw @post.title %></h1>
 
-<span> por <%= @post.user.username %>,<%= @post.created_at.to_datetime.strftime("às %H:%M")%></span>
+<span> por <%= getAuthor(@post) %>, <%= @post.created_at.to_datetime.strftime("às %H:%M")%></span>
 
 <%= raw markparser.render(@post.body) %>
 
