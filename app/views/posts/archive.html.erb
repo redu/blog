@@ -11,7 +11,7 @@
     <%= render 'block_archive' %>
   </div>
   <div>
-    <h2>Posts of <%= month_name(params[:month].to_i) %></h2>
+    <h2>Posts of <%= l Date.today.beginning_of_year.advance(:months => (params[:month].to_i-1)), :format => "%B" %></h2>
     <ul>
       <% @posts.each do |post| %>
         <li>
