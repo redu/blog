@@ -7,8 +7,8 @@
   %>
   <% group_years.keys.each do |key| %>
     <h3 style="margin:0.5em 0 0.5em 0"><%= key %></h3>
-    <% group_years[key].group_by { |post| post.created_at.month}.keys.each do |month| %>
-      <h4 style='margin: 0 0 5px 0'><%= link_to month_name(month), {:controller => :posts, :action => 'archive', :year=>key, :month => month} %></h4>
+    <% group_years[key].group_by { |post| l post.created_at, :format=>('%B,%m')}.keys.each do |month| %>
+      <h4 style='margin: 0 0 5px 0'><%= link_to month.split(',')[0], {:controller => :posts, :action => 'archive', :year=>key, :month => month.split(',')[1]} %></h4>
     <% end %>
   <% end %>
 </div>

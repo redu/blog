@@ -1,7 +1,7 @@
 <% markparser = Redcarpet::Markdown.new(Redcarpet::Render::HTML,
         :autolink => true, :space_after_headers => false) %>
 
-<span><%= @post.created_at.to_datetime.strftime("%d %b %y")%></span>
+<span><%= l @post.created_at.to_datetime, :format => ("%d %b %y")%></span>
 
 <h3> blog / post </h3>
 <h1><%= raw @post.title %></h1>
