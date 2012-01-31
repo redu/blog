@@ -6,7 +6,7 @@ Blog::Application.routes.draw do
 
   # Define rotas do devise para o recurso users
   devise_for :users
-
+  
   # Redireciona as actions login e logut para as devidas actions do Devise
 	devise_scope :user do
 		get "login", :to => "devise/sessions#new"
