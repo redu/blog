@@ -27,7 +27,7 @@ module Blog
 
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
-    # config.time_zone = 'Central Time (US & Canada)'
+   config.time_zone = 'Brasilia'
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '*.{rb,yml}').to_s]
@@ -49,8 +49,6 @@ module Blog
     if File.exists?("#{Rails.root}/lib/stop_words/words.yml")
       config.stop_words = YAML.load_file("#{Rails.root}/lib/stop_words/words.yml")
 
-	# Autoload ckeditor models folder (by embs)
-	config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
 	end
 
   end
