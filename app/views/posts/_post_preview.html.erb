@@ -1,0 +1,12 @@
+<% markparser = Redcarpet::Markdown.new(Redcarpet::Render::HTML,
+        :autolink => true, :space_after_headers => false) %>
+<li style="margin: 20px 0 10px 0; ">
+      <span style="display:block"><%=  l post_preview.created_at.to_datetime,:format => ("%d %b %y")%></span>
+      <h3 style="display:inline"><%= link_to post_preview.title, post_preview %></h3>,
+      <span> por <%= getAuthor(post_preview) %>,<%= post_preview.created_at.to_datetime.strftime(" às %H:%M")%></span>
+      <% post_preview.tags.each do |tag| %>
+        <%= link_to tag.name, tag_posts_path(tag) %>
+      <% end %>
+      <div><%=raw markparser.render(truncate (truncate_html(post_preview.body , 250, "")), :length => 30000 ,:separator => " ", :omission => " ..." )%></div>
+      <span><%= link_to "+ Leia mais", post_preview %></span>
+    </li>

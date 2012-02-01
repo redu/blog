@@ -1,5 +1,3 @@
-<% markparser = Redcarpet::Markdown.new(Redcarpet::Render::HTML,
-        :autolink => true, :space_after_headers => false) %>
 <div style="margin: 0 50px 0 35px">
 
 <h1> Listing Posts </h1>
@@ -15,28 +13,12 @@
 <div>
   <h2>Last Posts</h2>
   <ul>
-  <% @posts.each do |post| %>
-    <li style="margin: 20px 0 10px 0; ">
-      <span style="display:block"><%=  l post.created_at.to_datetime,:format => ("%d %b %y")%></span>
-      <h3 style="display:inline"><%= link_to post.title, post %></h3>,
-      <span> por <%= getAuthor(post) %>,<%= post.created_at.to_datetime.strftime(" às %H:%M")%></span>
-      <% post.tags.each do |tag| %>
-        <%= link_to tag.name, tag_posts_path(tag) %>
-      <% end %>
-      <div><%=raw markparser.render(truncate (truncate_html(post.body , 250, "")), :length => 30000 ,:separator => " ", :omission => " ..." )%></div>
-      <span><%= link_to "+ Leia mais", post %></span>
-    </li>
-  <% end %>
+  <%= render :partial => "post_preview", :collection => @posts %>
   </ul>
 </div>
 
 <div style="padding-bottom: 20px">
-<% if user_signed_in? %>
-  <b><%= link_to 'New post', new_post_path %></b> ||
-  <b><%= link_to 'Logout', destroy_user_session_path, :method => :delete %></b>
-<% else %>
-  <b><%= link_to 'Login', new_user_session_path %></b>
-<% end %>
+	<%= render "devise/menu/login_items" %>
 </div>
 <!--
 <div>
