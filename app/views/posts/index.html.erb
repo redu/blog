@@ -16,16 +16,16 @@
   <h2>Last Posts</h2>
   <ul>
   <% @posts.each do |post| %>
-	  <li style="margin: 20px 0 10px 0; ">
-            <span style="display:block"><%=  l post.created_at.to_datetime,:format => ("%d %b %y")%></span>
-	  	<h3 style="display:inline"><%= link_to post.title, post %></h3>,
-		<span> por <%= getAuthor(post) %>,<%= post.created_at.to_datetime.strftime(" às %H:%M")%></span>
-		<% post.tags.each do |tag| %>
-			<%= link_to tag.name, tag_posts_path(tag) %>
-		<% end %>
-		<div><%=raw markparser.render(truncate (truncate_html(post.body , 250, "")), :length => 30000 ,:separator => " ", :omission => " ..." )%></div>
-		<span><%= link_to "+ Leia mais", post %></span>
-	  </li>
+    <li style="margin: 20px 0 10px 0; ">
+      <span style="display:block"><%=  l post.created_at.to_datetime,:format => ("%d %b %y")%></span>
+      <h3 style="display:inline"><%= link_to post.title, post %></h3>,
+      <span> por <%= getAuthor(post) %>,<%= post.created_at.to_datetime.strftime(" às %H:%M")%></span>
+      <% post.tags.each do |tag| %>
+        <%= link_to tag.name, tag_posts_path(tag) %>
+      <% end %>
+      <div><%=raw markparser.render(truncate (truncate_html(post.body , 250, "")), :length => 30000 ,:separator => " ", :omission => " ..." )%></div>
+      <span><%= link_to "+ Leia mais", post %></span>
+    </li>
   <% end %>
   </ul>
 </div>

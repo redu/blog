@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show, :search, :archive]
 
   def index
-    @posts = params[:tag_id] ? Tag.find(params[:tag_id]).posts: Post.all
+    @posts = params[:tag_id] ? Tag.find(params[:tag_id]).posts : Post.all
     @tags = Tag.all
       respond_to do |format|
         format.html {render :layout => params[:tag_id] ? 'tag' : true}
