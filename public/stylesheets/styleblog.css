@@ -33,15 +33,6 @@ html, body {
   height: 210px;
 }
 
-
-/*.body {
-  height: 673px;
-}*/
-
-.presentation {
-  float: left;
-}
-
 .top {
   background: url("../images/new/redu-hi-horiz.png");
   width: 353px;
@@ -66,9 +57,9 @@ html, body {
 }
 
 .boxshadow .body-blog {  
-  -webkit-box-shadow: 0px 2px 5px 0.4px #000000;
-  -moz-box-shadow: 0px 2px 5px 0.4px #000000;
-  box-shadow: 0px 2px 5px 0.4px #000000;  
+  -webkit-box-shadow: 0px 2px 5px 0.4px rgb(0, 0, 0);
+  -moz-box-shadow: 0px 2px 5px 0.4px rgb(0, 0, 0);
+  box-shadow: 0px 2px 5px 0.4px rgb(0, 0, 0);  
 }
 
 .cssgradients .body-blog {
@@ -109,7 +100,7 @@ html, body {
 }  
 
 .link-members:hover {
-  color: black;
+  color: rgb(0, 0, 0);
 }
 
 .descroption { 
@@ -125,7 +116,7 @@ html, body {
   margin-bottom: 65px;
 }
 
-.marks {
+.box-marks {
   float: right;
   background-color: rgb(255, 238, 215);
   margin-left: 4px; 
@@ -154,13 +145,13 @@ html, body {
   letter-spacing: -2px;
 }
   
-.boxshadow .marks { 
+.boxshadow .box-marks { 
   -webkit-box-shadow: -3px 3px 0px 0px rgb(255, 169, 53);
   -moz-box-shadow:  -3px 3px 0px 0px rgb(255, 169, 53);
   box-shadow:  -3px 3px 0px 0px rgb(255, 169, 53);
 }
 
-.borderradius .marks {
+.borderradius .box-marks {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px; 
@@ -224,6 +215,7 @@ html, body {
 
 .year {
   margin-left: 8px;
+  padding: 4px;
 }
 
 .twelve {
@@ -270,6 +262,7 @@ html, body {
   clear: both;
   float: right;
 }
+
 .link-partner-ccte a,
 .link-partner-pd a,
 .link-partner-cns a,
@@ -323,7 +316,7 @@ html, body {
   margin-left: 0;
 }
 
-.textshadow .date-post{
+.textshadow .date-post {
   text-shadow: 0px 1px 0px rgb(255, 255, 255);
 }
 
@@ -345,7 +338,7 @@ html, body {
   border-radius: 5px; 
 }
 
-.author{
+.author {
   margin: 20px 20px 20px 0
 }
 
@@ -476,7 +469,7 @@ clear: both;
 }
 
 .about-members {
-  padding: 8px;
+  padding: 10px;
   font-family: museo-sans, arial, sans-serif;
   font-weight: 500;
   font-size: 30px;
@@ -492,7 +485,7 @@ clear: both;
   margin-top: 60px;
 }
 
-.some-users a{ 
+.some-users a { 
   text-decoration: none;
   color: rgb(97, 160, 128);
   font-weight: 500;
@@ -500,7 +493,7 @@ clear: both;
   font-size: 15px;
 }
 
-.boxshadow .some-users{
+.boxshadow .some-users {
   -webkit-box-shadow: -3px 3px 0px 0px rgb(97, 160, 128);
   -moz-box-shadow:  -3px 3px 0px 0px rgb(97, 160, 128);
   box-shadow:  -3px 3px 0px 0px rgb(97, 160, 128);
@@ -513,13 +506,15 @@ clear: both;
 }
 
 .description {
+  margin-bottom: 10px;
+  margin-top: 3px;
   font-size: 11px;
   font-weight: normal;
   font-family: museo-slab, arial, sans-serif;
   color: rgb(109, 110, 111);
 }
 
-.textshadow .divão {
+.textshadow .sidebar {
   text-shadow: 0px 1px rgb(255, 255, 255);
 }
 
@@ -578,7 +573,7 @@ clear: both;
   background-color: white;
 }
 
-.show-more a{
+.show-more a {
   text-decoration: none;
   color: rgb(77, 173, 214);
   overflow: hidden;
@@ -721,7 +716,7 @@ background: linear-gradient(top,  rgb(219,239,247) 0%,rgb(240,240,240) 100%); /*
   line-height: 15px;
 }
 
-.our-address{
+.our-address {
   margin-left: 60px;
   background-image: url("../images/new/icone-interrog-12.png");
   background-repeat: no-repeat;
