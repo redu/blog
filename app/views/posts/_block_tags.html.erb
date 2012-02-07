@@ -1,0 +1,8 @@
+<div id="tags">
+  <h2>Tag List</h2>
+  <%@tags.find_all {|tag| tag.posts.size > 0}.each do |tag_list|  %>
+    <h4 style="margin: 0 0 5px 0">
+      <%= link_to tag_list.name, tag_posts_path(tag_list) %>
+    </h4>
+  <% end %>
+</div>

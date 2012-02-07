@@ -1,11 +1,12 @@
 module ApplicationHelper
 
-	def getUsername(post)
+	def getAuthor(post)
 		if post.user == nil
-			poster = 'Desconhecido'
+			author = 'Desconhecido'
 		else
-			poster = post.user.username
+			author = link_to(post.user.username, post.user.profile_link)
 		end
+		author
 	end
 	
 end
