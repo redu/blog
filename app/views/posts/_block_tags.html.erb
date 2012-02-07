@@ -1,8 +1,8 @@
-<div id="tags">
-  <h2>Tag List</h2>
+<ul class="marks alfa omega grid_4">
+  <h1 class="title-mark"> Marcadores </h1>
   <%@tags.find_all {|tag| tag.posts.size > 0}.each do |tag_list|  %>
-    <h4 style="margin: 0 0 5px 0">
-      <%= link_to tag_list.name, tag_posts_path(tag_list) %>
-    </h4>
+    <li class="li-marks">
+      <%= link_to tag_list.name, tag_posts_path(tag_list)  %>
+    </li>
   <% end %>
-</div>
+</ul>
