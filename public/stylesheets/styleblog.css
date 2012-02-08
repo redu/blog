@@ -1,9 +1,5 @@
 * {
-margin: 0;
-}
-
-a {
-  text-decoration: none;
+  margin: 0; /* Identar */
 }
 
 
@@ -11,59 +7,38 @@ html {
   clear: both;
 }
 
-body {
-  font-family: arial, sans-serif;
-  font-size: 12px;
-}
-
 html, body {
   height: 100%;
 }
 
-.overlay {
+body .overlay {
   background-image: url("../images/new/circulos-bokeh.png");
   background-repeat: no-repeat;
   min-height: 100%;
   height: auto !important;
-  height: 100%;
+  height: 100%; /* Porque definiu height duas vezes no mesmo seletor? */
   margin: 0 auto -210px;
 }
 
-.push {
+.overlay .push {
   height: 210px;
 }
 
-.top {
-  background: url("../images/new/redu-hi-horiz.png");
-  width: 353px;
-  height: 147px;
-  margin-left: -27px;
-}
-
-.top a {
-  display: block;
-  text-indent: -9999px;
-  overflow: hidden;
-  margin-left: -27px;
-  width: 353px;
-  height: 147px;
-}
-
-.body-blog {  
+.overlay .body-blog { 
+  background-color rgb(240, 240, 240);
   border-style: solid;
   border-width: 1px;
   border-color: white;
   margin-top: 15px;
 }
 
-.boxshadow .body-blog {  
+.boxshadow .overlay .body-blog {  
   -webkit-box-shadow: 0px 2px 5px 0.4px rgb(0, 0, 0);
   -moz-box-shadow: 0px 2px 5px 0.4px rgb(0, 0, 0);
   box-shadow: 0px 2px 5px 0.4px rgb(0, 0, 0);  
 }
 
 .cssgradients .body-blog {
-  background: rgb(240,240,240); /* Old browsers */
   background: -moz-linear-gradient(top,  rgb(240,240,240) 0%, rgb(255,255,255) 8%, rgb(255,255,255) 90%, rgb(240,240,240) 100%); /* FF3.6+ */
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgb(240,240,240)), color-stop(8%,rgb(255,255,255)), color-stop(90%,rgb(255,255,255)), color-stop(100%,rgb(240,240,240))); /* Chrome,Safari4+ */
   background: -webkit-linear-gradient(top,  rgb(240,240,240) 0%,rgb(255,255,255) 8%,rgb(255,255,255) 90%,rgb(240,240,240) 100%); /* Chrome10+,Safari5.1+ */
@@ -75,48 +50,41 @@ html, body {
 .borderradius .body-blog {
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
+  border-radius: 10px; 
 }
 
-.some-users { 
+.sidebar .some-users {
   clear: both;
   display: block;
   float: right;
 } 
 
-.sidebar {
+
+.body-blog .sidebar {
   float: right;
   margin-top: 50px;
 }
 
-.body .link-members:before {
+.sidebar .some-users .about-us {
+  overflow: hidden;
+}
+
+.sidebar .some-users .about-us .link-member:before {
   content: "";
   float: left;
   width: 32px;
   height: 32px;
   background: url("../images/new/missing_users_thumb_32.png") no-repeat;
   padding: 0px;
-  margin-top: 2px;
+  margin-top: 15px;
   margin-left: 7px;
 }  
 
-.link-members:hover {
+.sidebar .some-users .about-us .link-member:hover {
   color: rgb(0, 0, 0);
 }
 
-.descroption { 
-  float: right;
-  margin-top: 3px;
-}
-
-.members a {
-  padding: 11px;
-}
-
-.users {
-  margin-bottom: 65px;
-}
-
-.box-marks {
+.sidebar .box-marks {
   float: right;
   background-color: rgb(255, 238, 215);
   margin-left: 4px; 
@@ -124,7 +92,11 @@ html, body {
   padding-bottom: 10px;
 }
 
-.li-marks a {
+.sidebar .box-marks .marks .mark {
+  padding: 10px;
+}
+
+.sidebar .box-marks .marks .mark a {
  color: rgb(255, 169, 53);
  font-size: 12px;
  font-weight: bold;
@@ -132,11 +104,11 @@ html, body {
  text-decoration: none;
 }
 
-.li-marks a:hover {
+.sidebar .box-marks .marks .mark a:hover {
   color: rgb(213, 94, 0);
 }
 
-.title-mark {
+.sidebar .box-marks .marks .title {
   font-family: museo-sans, arial, sans-serif;
   font-size: 30px;
   font-weight: 500;
@@ -145,50 +117,50 @@ html, body {
   letter-spacing: -2px;
 }
   
-.boxshadow .box-marks { 
+.boxshadow .sidebar .box-marks { 
   -webkit-box-shadow: -3px 3px 0px 0px rgb(255, 169, 53);
   -moz-box-shadow:  -3px 3px 0px 0px rgb(255, 169, 53);
   box-shadow:  -3px 3px 0px 0px rgb(255, 169, 53);
 }
 
-.borderradius .box-marks {
+.borderradius .sidebar .box-marks {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px; 
 }
   
-.marks {
+.sidebar .box-marks .marks {
   clear: both;
   float: right;
 }
  
-.li-marks {
+.box-marks .marks mark {
   padding-bottom: 5px;
   margin-left: 8px;
   padding: 10px;
 }
 
-.files {
+.sidebar .files {
   float: right;
   background-color: rgb(219, 239, 247);
   margin-left: 4px;
   margin-top: 20px;
 }
 
-.boxshadow .files {
+.boxshadow .sidebar .files {
   -webkit-box-shadow: -3px 3px 0px 0px rgb(21, 138, 196);
   -moz-box-shadow:  -3px 3px 0px 0px rgb(21, 138, 196);
   box-shadow:  -3px 3px 0px 0px rgb(21, 138, 196);
 }
 
-.borderradius .files {
+.borderradius .sidebar  .files {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px; 
 }
   
 
-.title-file {
+.sidebar .files .title {
   letter-spacing: -2px;
   padding: 8px;
   font-family: museo-sans, arial, sans-serif;
@@ -197,11 +169,12 @@ html, body {
   color: rgb(77, 173, 214);
 }
 
-.li-month {
-  padding: 5px;
+.files .years .month {
+  padding: 5px 0px;
 }
   
-.li-month a, .years{
+.files .month a,
+.files .years {
   text-decoration: none;
   color: rgb(77, 173, 214);
   font-family: arial, sans-serif;
@@ -209,45 +182,50 @@ html, body {
   font-size: 12px;
 }
 
-.li-month a{
+.files .years .month a{
   margin-left: 16px;
 }
 
-.year {
+.files .years .year {
   margin-left: 8px;
   padding: 4px;
 }
 
-.twelve {
-  margin-top: 5px;
-  margin-bottom: 5px;
+.sidebar .partners {
+  letter-spacing: -2px;
+  clear: both;
+  float: right;
 }
 
-.link-partner-pd {
+.partners .partner-pd {
   width: 100px;
   height: 50px;
   background-image: url("../images/new/parceiro-pd.png");
   margin-top: 8px;
+  text-indent: -9999px;
 }
 
-.link-partner-for {
+.partners .partner-for {
   width: 100px;
   height: 50px;
   background-image: url("../images/new/parceiro-for.png");
-  float: left;
+  float: right;
   margin-left: 31px;
-  margin-top: 20px;
+  margin-top: -50px;
+  text-indent: -9999px;
+  
 }
 
-.link-partner-ccte {
+.partners .partner-ccte {
   width: 150px;
   margin-left: -12px;
   margin-top: 20px;
   height: 50px;
   background-image: url("../images/new/parceiro-ccte.png");
+  text-indent: -9999px;
 }
 
-.link-partner-cns {
+.partners .partner-cns {
   width: 100px;
   height: 50px;
   background-image: url("../images/new/parceiro-cns.png");
@@ -257,57 +235,62 @@ html, body {
   margin-top:10px;
 }
 
-.partners {
-  letter-spacing: -2px;
-  clear: both;
-  float: right;
-}
-
-.link-partner-ccte a,
-.link-partner-pd a,
-.link-partner-cns a,
-.link-partner-for a {
-  overflow: hidden;
+.partners .partner-ccte a,
+.partners .partner-pd a,
+.partners .partner-cns a,
+.partners .partner-for a {
   display: block;
-  height: 150px;
+  height: 50px;
+  text-indent: -9999px;
 }
 
-.img-logo-top a {
+.overlay .logo-top {
+  width: 353px;
+}
+
+.overlay .logo-top .imagem {
+  position: relative;
+}
+
+.overlay .logo-top .imagem a {
   background-image: url("../images/new/redu-hi-horiz.png");
   background-repeat: no-repeat; 
   height: 147px;
   width: 353px;
   float: left;
-  content: "";
   margin-top: 0;
   display: block;
   overflow: hidden;
+  text-indent: -9999px;
 }
 
-.img-logo-top {
-  position: relative;
-}
-
-.tecoteco {
+.logo-top .tecoteco {
   position: absolute;
   float: right;
   width: 369px;
   height: 286px;
   background-image: url("../images/new/tecoteco.png");
   margin-left: 700px;
+  text-indent: -9999px;
+  display: block;
 }
 
-.blog {
-  margin-top: -42px;
+.logo-top .imagem .blog {
+  display:block;
   float: right;
-  margin-right: 636px;
+  margin-top: -40px;
+  margin-right: 30px;
   font-size: 47px;
   color: rgb(115, 195, 230);
   font-weight: 100;
   font-family: museo-sans, arial, sans-serif;
 }
 
-.date-post {
+.textshadow .logo-top .blog {
+  text-shadow: 0px 1px rgb(255, 255, 255);
+}
+
+.body-blog .box-posts .posts .date {
   font-family: museo-slab, arial, sans-serif;
   font-weight: 500;
   font-size: 17px;
@@ -316,33 +299,37 @@ html, body {
   margin-left: 0;
 }
 
-.textshadow .date-post {
+.textshadow .body-blog .posts .date {
   text-shadow: 0px 1px 0px rgb(255, 255, 255);
 }
 
-.title-post {
-  float: right;
-  background-color: rgb(240, 240, 240);
-  margin-right: 10px;
+.body-blog .posts .post .add-informations {
+  font-size: 12px;
+  color: rgb(179, 179, 179);
+  font-family: arial, sans-serif;
 }
 
-.boxshadow .title-post {
+.body-blog .posts .post .box-title {
+  background-color: rgb(240, 240, 240);
+}
+
+.boxshadow .posts .post .box-title {
   -webkit-box-shadow: inset 0px 1px 0px rgb(255, 255, 255), inset 0px -1px 0px rgb(204, 204, 204);
   -moz-box-shadow: inset 0px 1px 0px rgb(255, 255, 255), inset 0px -1px 0px rgb(204, 204, 204);
   box-shadow: inset 0px 1px 0px rgb(255, 255, 255), inset 0px -1px 0px rgb(204, 204, 204);
 }
 
-.borderradius .title-post {
+.borderradius .posts .post .box-title {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px; 
 }
 
-.author {
-  margin: 20px 20px 20px 0
+.posts .post .author {
+  margin: 20px 20px 20px 0px;
 }
 
-.title {
+.posts .post .box-title .title {
   font-family: museo-slab, arial, sans-serif;
   font-size: 30px;
   color: rgb(77, 173, 214);
@@ -353,66 +340,7 @@ html, body {
   text-decoration: none;
 }
 
-.technology:hover,
-.educational:hover {
-  background-color: rgb(255, 124, 53);
-  color: rgb(255, 255, 255);
-}
-
-.textshadow .technology:hover,
-.textshadow .educational:hover {
-  text-shadow: 1px 1px rgb(255, 124, 53);
-}
-
-.by, 
-.hour { 
-  color: rgb(179, 179, 179);
-  font-family: arial, sans-serif;
-  font-weight: normal;
-  font-size: 12px;
-}
-
-.textshadow .by,
-.textshadow .hour {
-  text-shadow: 0px 1px rgb(204, 204, 204);
-}
-
-.link-author {
-  color: rgb(77, 173, 214);
-  font-family: arial, sans-serif;
-  font-weight: normal;
-  font-size: 12px;
-  text-decoration: none;
-}
-
-.textshadow .link-author {
-  text-shadow: 0px 1px rgb(219, 239, 247);
-}
-
-.textshadow .subject {
-  text-shadow: 0px 1px rgb(255, 255, 255);
-}
-
-.borderradius .technology ,
-.borderradius .educational {
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-}
-
-.boxshadow .technology, 
-.boxshadow .educational {
-  -webkit-box-shadow: 1px 1px 0px 0px rgb(255, 169, 53);
-  -moz-box-shadow: 1px 1px 0px 0px rgb(255, 169, 53);
-  box-shadow: 1px 1px 0px 0px rgb(255, 169, 53);
-}
-
-.technology {
-  margin-left: 10px;
-}
-
-.technology ,
-.educational {
+.posts .post .tags .tag  {
   background-color: rgb(255, 238, 215);
   color: rgb(255, 169, 53);
   padding: 3px;
@@ -423,44 +351,82 @@ html, body {
   font-weight: bold;
 }
 
-.subject {
+.posts .post .tag:hover {
+  background-color: rgb(255, 124, 53);
+  color: rgb(255, 255, 255);
+}
+
+.textshadow .posts .post .tag:hover {
+  text-shadow: 0px -1px rgb(243, 74, 0);
+}
+
+.posts .post .link-author {
+  color: rgb(77, 173, 214);
+  font-family: arial, sans-serif;
+  font-weight: normal;
+  font-size: 12px;
+  text-decoration: none;
+}
+
+.textshadow .posts .post .tag .link-author {
+  text-shadow: 0px 1px rgb(219, 239, 247);
+}
+
+.textshadow .posts .post .tag {
+  text-shadow: 0px 1px rgb(255, 255, 255);
+}
+
+.borderradius .posts .post .tag {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+.boxshadow .posts .post .tag {
+  -webkit-box-shadow: 1px 1px 0px 0px rgb(255, 169, 53);
+  -moz-box-shadow: 1px 1px 0px 0px rgb(255, 169, 53);
+  box-shadow: 1px 1px 0px 0px rgb(255, 169, 53);
+}
+
+.posts .post .tags {
   float: right;
   margin-right: 30px;
 }
 
-.subject a {
+.posts .post .tags a {
   text-decoration: none;
   overflow: hidden;
+  margin-left: 5px;
+  padding: 4px;
   display: block;
 }
 
-.text-post, .text {
-  font-family: arial, sans-serif;
-  font-weight: normal;
-  line-height: 18px;
-  font-size: 13px;
-  margin-left: 30px;
-  padding-bottom: 30px;
+.posts .post .text-box {
+  float: right;
   padding-right: 10px;
 }
 
-.text {
+.posts .post .text-box .text {
   border-bottom: dotted gray 1px;
+  padding-bottom: 40px;
+  line-height: 18px;
+  font-size: 13px;
+  font-family: arial, sans-serif;
+  font-weight: normal;
 } 
 
-.textshadow .text-post {
-  text-shadow: 0px 1px rgb(179, 179, 179);
-}
-
-.footer, .push {
+.overlay .footer,  
+.overlay .push {
 clear: both;
 }
 
-.post {
-  margin-top: 10px;
+.body-blog .posts .post {
+  margin-top: 40px;
+  float: right;
+  clear: both;
 }
 
-.date {
+.posts .post .date {
   float:left;
   clear: both;
   font-family: museo-slab, arial, sans-serif;
@@ -468,24 +434,21 @@ clear: both;
   font-size: 17px;
 }
 
-.about-members {
-  padding: 10px;
+.sidebar .some-users .about-us {
   font-family: museo-sans, arial, sans-serif;
   font-weight: 500;
   font-size: 30px;
   color: rgb(97, 160, 128);
+  overflow: hidden;
+  float:right;
 }
 
-.textshadow .about-members{
-  text-shadow: 0px 1px rgb(255, 255, 255);
-}
-
-.some-users {
+.body-blog .sidebar .some-users {
   background-color: rgb(225, 241, 225);
   margin-top: 60px;
 }
 
-.some-users a { 
+.body-blog .sidebar .some-users a { 
   text-decoration: none;
   color: rgb(97, 160, 128);
   font-weight: 500;
@@ -493,32 +456,36 @@ clear: both;
   font-size: 15px;
 }
 
-.boxshadow .some-users {
+.sidebar .some-users .about-us .member .link-member {
+  padding: 11px;
+}
+
+.boxshadow .body-blog .sidebar .some-users {
   -webkit-box-shadow: -3px 3px 0px 0px rgb(97, 160, 128);
   -moz-box-shadow:  -3px 3px 0px 0px rgb(97, 160, 128);
   box-shadow:  -3px 3px 0px 0px rgb(97, 160, 128);
 }
 
-.borderradius .some-users {
+.borderradius .body-blog .sidebar .some-users {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px; 
 }
 
-.description {
-  margin-bottom: 10px;
-  margin-top: 3px;
+.sidebar .some-users .about-us .member .description {
   font-size: 11px;
   font-weight: normal;
   font-family: museo-slab, arial, sans-serif;
   color: rgb(109, 110, 111);
+  float: right;
+  line-height: 12px;
 }
 
-.textshadow .sidebar {
+.textshadow .body-blog .sidebar {
   text-shadow: 0px 1px rgb(255, 255, 255);
 }
 
-.title-partner {
+.sidebar .partners .title {
   margin-top: 20px;
   padding: 8px;
   font-family: museo-sans, arial, sans-serif;
@@ -527,37 +494,36 @@ clear: both;
   color: rgb(204, 204, 204);
 }
 
-.day {
+.posts .post .day {
   font-size: 30px;
   font-weight: 300;
 }
 
-.first-post {
-  margin-top: 45px;
-}
-
-.img-zepi {
-  position: absolute;
+.imagens-inferior .zepi {
   width: 274px;
   height: 309px;
   background-image: url("../images/new/zepi.png");
   float: left;
-  margin-top: -293px;
-  margin-left: -77px;
+  display: block;
+  float: right;
+  margin-top: -289px;
+  margin-left: -60px;
+  position: absolute;
+  text-indent: -9999px;
 }
 
-.html5 {
+.imagens-inferior .html5 {
   float: right;
-  position: absolute;
   width: 165px;
   height: 65px;
   background-image: url("../images/new/html5-badge-css-semantics.png");
-  margin-top: -100px;
-  margin-left: 785px;
   background-repeat: no-repeat;
+  display: block;
+  margin-top: -100px;
+  text-indent: -9999px;
 }
 
-.ready-more { 
+.body-blog .read-more { 
   color: rgb(77, 173, 214);
   font-size: 12px;
   font-weight: normal;
@@ -565,24 +531,15 @@ clear: both;
   text-decoration: none;
 }
 
-.textshadow .ready-more {
-  text-shadow: 0px 1px rgb(255, 255, 255);
-}
-
-.body .body-blog {
-  background-color: white;
-}
-
-.show-more a {
+.body-blog .show-more a {
   text-decoration: none;
   color: rgb(77, 173, 214);
   overflow: hidden;
   display: block;
 }
 
-.show-more {
+.body-blog .show-more {
   margin-left: 290px;
-  padding:0;
   height: 16px;
   width: 100px;
   padding: 5px 38px 5px 38px;
@@ -590,7 +547,9 @@ clear: both;
   font-size: 12px;
   font-weight: bold;
   border: solid 1px rgb(179, 179, 179);
-  margin-top: 20px;
+  background: rgb(255,255,255);
+  margin-top: 80px;
+  margin-bottom: 30px;
 }
 
 .icon-seta-gray_8_12-before:before {
@@ -599,21 +558,19 @@ clear: both;
   float: left;
   height: 12px;
   background: url("../images/new/icones-p.png") -477px -1679px 	repeat;
-  margin-top: 3px;
 }
 
-.textshadow .show-more {
+.textshadow .body-blog .show-more {
   text-shadow: 0px 1px rgb( 255, 255, 255);
 }
 
-.borderradius .show-more {
+.borderradius .body-blog .show-more {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
 }
 
-.cssgradients .show-more {
-  background: rgb(255,255,255); /* Old browsers */
+.cssgradients .body-blog .show-more {
   background: -moz-linear-gradient(top,  rgb(255,255,255) 0%, rgb(230,230,230) 100%); /* FF3.6+ */
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgb(255,255,255)), color-stop(100%,rgb(230,230,230))); /* Chrome,Safari4+ */
   background: -webkit-linear-gradient(top,  rgb(255,255,255) 0%,rgb(230,230,230) 100%); /* Chrome10+,Safari5.1+ */
@@ -622,57 +579,57 @@ clear: both;
   background: linear-gradient(top,  rgb(255,255,255) 0%,rgb(230,230,230) 100%); /* W3C */
 }
 
-.informations {
+.posts .post .informations {
   float: right;
+  clear: both;
+  margin-right: 10px;
 }
 
-.title:hover, 
-.link-author:hover,
-.ready-more:hover, 
-.li-month a:hover,
-.link-show-more:hover {
+.posts .post .title:hover, 
+.posts .post .link-author:hover,
+.posts .post .read-more:hover, 
+.sidebar .files .month a:hover,
+.body-blog .show-more a:hover {
   color: rgb(21, 138, 196);
 }
 
-.cssgradients .title-post:hover {
-  background: rgb(219,239,247); /* Old browsers */
-background: -moz-linear-gradient(top,  rgb(219,239,247) 0%, rgb(240,240,240) 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgb(219,239,247)), color-stop(100%,rgb(240,240,240))); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top,  rgb(219,239,247) 0%,rgb(240,240,240) 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top,  rgb(219,239,247) 0%,rgb(240,240,240) 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(top,  rgb(219,239,247) 0%,rgb(240,240,240) 100%); /* IE10+ */
-background: linear-gradient(top,  rgb(219,239,247) 0%,rgb(240,240,240) 100%); /* W3C */
+.posts .post .box-title:hover {
+  background: rgb(219,239,247);
 }
 
-.stop .stop-here {
+.cssgradients .posts .post .box-title:hover {
+  background: -moz-linear-gradient(top,  rgb(219,239,247) 0%, rgb(240,240,240) 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgb(219,239,247)), color-stop(100%,rgb(240,240,240))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  rgb(219,239,247) 0%,rgb(240,240,240) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  rgb(219,239,247) 0%,rgb(240,240,240) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  rgb(219,239,247) 0%,rgb(240,240,240) 100%); /* IE10+ */
+  background: linear-gradient(top,  rgb(219,239,247) 0%,rgb(240,240,240) 100%); /* W3C */
+}
+
+.body-blog .sidebar .some-users .stop-here {
   font-size: 12px;
   color: rgb(97, 160, 128);
   font-family: arial, sans-serif;
   text-align: center;
-  padding: 24px 20px 24px 20px;
+  padding: 24px 20px;
   text-decoration: none;
   font-weight: bold;
+  margin: 20px 10px 20px 10px;
 }
 
-.stop-here:hover {
+.body-blog .sidebar .some-users .stop-here:hover {
   background-color: rgb(95, 192, 128);
   color: rgb(255, 255, 255);
 }
 
-.borderradius .stop-here:hover {
+.borderradius .body-blog .sidebar .some-users .stop-here:hover {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
 }
 
-.textshadow .stop-here:hover {
+.textshadow .body-blog .sidebar .some-users .stop-here:hover {
   text-shadow: 0px 1px rgb(92, 160, 128);
-}
-
-.stop {
-  width: 200px;
-  height: 60px;
-  margin: 80px 0px 20px ;
 }
 
 .footer {
@@ -684,7 +641,6 @@ background: linear-gradient(top,  rgb(219,239,247) 0%,rgb(240,240,240) 100%); /*
 }
 
 .cssgradients .footer {
-  background: rgb(115,195,230); /* Old browsers */
   background: -moz-linear-gradient(top, rgb(115,195,230) 0%, rgb(23,137,195) 100%); /* FF3.6+ */
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgb(115,195,230)), color-stop(100%,rgb(23,137,195))); /* Chrome,Safari4+ */
   background: -webkit-linear-gradient(top, rgb(115,195,230) 0%,rgb(23,137,195) 100%); /* Chrome10+,Safari5.1+ */
@@ -693,17 +649,18 @@ background: linear-gradient(top,  rgb(219,239,247) 0%,rgb(240,240,240) 100%); /*
   background: linear-gradient(top, rgb(115,195,230) 0%,rgb(23,137,195) 100%);
 }
 
-.logo-bottom a {
+.footer .logo-bottom a {
   height: 212px;
   overflow: hidden;
   display: block;
 }
 
-.logo-bottom {
+.footer .logo-bottom {
   width: 240px;
   height: 77px;
   background-image: url("../images/new/redutech-low-horiz-a.png");
   margin-left: -18px;
+  text-indent: -9999px;
 }
 
 .footer .presentation-call {
@@ -716,7 +673,7 @@ background: linear-gradient(top,  rgb(219,239,247) 0%,rgb(240,240,240) 100%); /*
   line-height: 15px;
 }
 
-.our-address {
+.footer .our-address {
   margin-left: 60px;
   background-image: url("../images/new/icone-interrog-12.png");
   background-repeat: no-repeat;
@@ -731,12 +688,12 @@ background: linear-gradient(top,  rgb(219,239,247) 0%,rgb(240,240,240) 100%); /*
   color: white;
 }
 
-.textshadow .presentation-call,
-.textshadow .our-address {
+.textshadow .footer .presentation-call,
+.textshadow .footer .our-address {
   text-shadow: 0 -1px 0 rgb(21, 138, 196);
 }
 
-.about-redu {
+.footer  .about-redu {
   margin-left: 200px;
   width: 130px;
   height: 62px;
@@ -744,7 +701,7 @@ background: linear-gradient(top,  rgb(219,239,247) 0%,rgb(240,240,240) 100%); /*
   font-size: 13px;
 }
 
-.politics-terms {
+.footer .politics-terms {
   width: 150px;
   height: 62px;
   float: left;
@@ -756,6 +713,7 @@ background: linear-gradient(top,  rgb(219,239,247) 0%,rgb(240,240,240) 100%); /*
   font-size: 12px;
   color: white;
   font-family: arial, sans-serif;
+  text-decoration: none;
 }
 
 .textshadow .footer a {
@@ -766,27 +724,27 @@ background: linear-gradient(top,  rgb(219,239,247) 0%,rgb(240,240,240) 100%); /*
   text-shadow: none;
 }
 
-.list-menu {
+.footer .item-menu {
   padding: 5px;
 }
 
-.list-menu a {
+.footer .item-menu a {
   padding: 5px;
 }
 
-.borderradius .list-menu a:hover {
+.borderradius .footer .item-menu a:hover {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
 }
 
-.boxshadow .list-menu a:hover {
+.boxshadow  .footer  .item-menu a:hover {
   -webkit-box-shadow: 0 1px 0 0 rgb(109, 110, 111);
   -moz-box-shadow: 0 1px 0 0 rgb(109, 110, 111);
   box-shadow: 0 1px 0 0 rgb(109, 110, 111);
 }
 
-.list-menu a:hover {
+.footer .item-menu a:hover {
   background-color: white;
   color: rgb(21,138,196);
 }
