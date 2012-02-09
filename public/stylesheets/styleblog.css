@@ -159,7 +159,6 @@ body .overlay {
   border-radius: 5px; 
 }
   
-
 .sidebar .files .title {
   letter-spacing: -2px;
   padding: 8px;
@@ -746,6 +745,48 @@ clear: both;
 
 .footer .item-menu a:hover {
   background-color: white;
-  color: rgb(21,138,196);
 }
+
+.body .body-blog .tags-page {
+  background-color: rgb(255, 238, 215);
+  min-height: 40px;
+}
+
+.textshadow .body-blog .tags-page {
+  text-shadow: 0px 1px rgb(255, 255, 255);
+}
+
+.borderradius .body-blog .tags-page {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+
+.boxshadow .body-blog .tags-page {
+  -webkit-box-shadow: 0px 1px 0px 0px rgb(255, 255, 255);
+  -moz-box-shadow: 0px 1px 0px 0px rgb(255, 255, 255);
+  box-shadow: 0px 1px 0px 0px rgb(255, 255, 255);
+}
+
+.body .body-blog .itens-tags-page  {
+  padding: 10px;
+}
+
+.body .body-blog .tags-page .bar {
+  color: rgb(204, 204, 204);
+}
+
+.body .body-blog .tags-page .tag-page a {
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: 500;
+  font-family: museo-sans, sans-serif;
+  color: rgb(255, 124, 53);
+}
+  
+.body .body-blog .tags-page .tag-page {
+    display: inline;
+    margin-top: 10px;
+}
+  
 
