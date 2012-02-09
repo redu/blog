@@ -745,6 +745,7 @@ clear: both;
 
 .footer .item-menu a:hover {
   background-color: white;
+  color: rgb(21, 138, 196);
 }
 
 .body .body-blog .tags-page {
