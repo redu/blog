@@ -49,6 +49,9 @@ module Blog
     if File.exists?("#{Rails.root}/lib/stop_words/words.yml")
       config.stop_words = YAML.load_file("#{Rails.root}/lib/stop_words/words.yml")
 
+    # Config Default Url Options (mailer)
+    config.action_mailer.default_url_options = { :host => 'redu.com.br' }
+
 	end
 
   end
