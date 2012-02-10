@@ -1,16 +1,41 @@
-<div style="margin: 0 50px 0 35px">
+<div class="files-page">
+  <ul class="itens-files-page">
+    <li class="file-page">
+      <%= link_to 'blog', root_path %>
+      <span class="bar"> /</span>
+    </li>
+    <li class="file-page">
+      <%= link_to 'arquivos', archive_posts_path %>
+      <span class="bar"> /</span>
+    </li>
+    <% if params[:year] %>
+      <li class="file-page"><!-- year -->
+        <%= link_to params[:year].to_s, {:controller => :posts, :action => 'archive', :year => params[:year] } %>
+        <span class="bar"> /</span>
+      </li>
+   <% end %>
+   <% if params[:month] %>
+     <li class="file-page"><!-- month -->
+       <%= link_to (l Date.today.beginning_of_year.advance(:months => (params[:month].to_i-1)), :format => "%B"), {:controller => :posts, :action => 'archive', :month => params[:month] } %>
+     </li>
+   <% end %>
+  </ul>
+</div>
 
-  <h1> Listing Posts </h1>
+<ol class="posts omega alfa">
+  <li class="post grid_12 omega alfa first-post">
 
-  <a href="/posts.rss">
-    <img src="/assets/feed.jpg" alt="HTML tutorial" width="32" height="32" align="right"/>
-  </a>
+  </li>
+</ol>
 
-  <div style="float:right; margin-right:100px">
-    <%= render 'block_tags' %>
-    <%= render 'block_archive' %>
-  </div>
-  <div>
+
+
+
+
+
+
+
+<div>
     <h2>Posts of <%= l Date.today.beginning_of_year.advance(:months => (params[:month].to_i-1)), :format => "%B" %></h2>
     <ul>
       <% @posts.each do |post| %>

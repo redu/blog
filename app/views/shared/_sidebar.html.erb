@@ -1,7 +1,7 @@
 <div class="grid_4  alfa omega sidebar">
-  <%= render :partial => "block_members" %>
-  <%= render :partial => "block_tags" %>
-  <%= render :partial => "block_archive" %>
+  <%= render :partial => "shared/block_members" if :members %>
+  <%= render :partial => "shared/block_tags" %>
+  <%= render :partial => "shared/block_archive" %>
 
   <div class="partners alfa grid_4">
     <h1 class="title">Parceiros</h1>

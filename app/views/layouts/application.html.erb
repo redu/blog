@@ -14,8 +14,6 @@
     <%= raw wymeditor_initialize %>
   </head>
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
     <div class="overlay">
       <div class="body container_16">
         <div class="logo-top">
@@ -25,8 +23,12 @@
           </div>
           <span class="tecoteco">Teco Teco</span>
         </div>
-        <%= yield %>
+        <div class="body-blog omega alfa grid_16">
+          <%= yield :navbar %>
+          <%= yield %>
+        </div>
       </div>
+      <div class="push"></div>
     </div>
     <%= render :partial => "shared/footer" %>
   </body>

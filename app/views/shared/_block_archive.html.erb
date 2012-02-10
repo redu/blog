@@ -1,0 +1,19 @@
+<div class="files grid_4">
+  <h1 class="title">Arquivos</h1>
+  <%
+  hash_archive = Post.all(:order => 'created_at DESC')
+  group_years = hash_archive.group_by{ |p| p.created_at.year}
+  group_years.keys.each do |key|
+  %>
+  <ul class="years">
+    <li class="year"><%= key %></li>
+    <ul class="months">
+      <% group_years[key].group_by { |post| l post.created_at, :format=>('%B,%m')}.keys.each do |month| %>
+        <li class="month">
+          <%= link_to month.split(',')[0], {:controller => :posts, :action => 'archive', :year=>key, :month => month.split(',')[1]} %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+  </ul>
+</div>
