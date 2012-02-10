@@ -1,34 +1,5 @@
-<div class="overlay">
-  <div class="body container_16">
-    <div class="logo-top">
-      <div class="img-logo-top">
-        <a href="http://www.redu.com.br"></a>
-        <q class="blog">blog</q>
-      </div>
-      <div class="tecoteco">
-      </div>
-    </div>
-    <div class="body-blog omega alfa grid_16">
-      <%= render :partial => "post_preview", :collection => @posts %>
-    </div>
+<div class="body-blog omega alfa grid_16">
+  <%= render :partial => "post_preview", :collection => @posts %>
+</div>
 
-    <div class="grid_4  alfa omega sidebar">
-      <div class="grid_4 alfa  some-users">
-        <%= render :partial => "block_members" %>
-      </div><!-- end-users -->
-      <div class="box-marks alfa grid_4">
-        <%= render :partial => "block_tags" %>
-      </div><!-- end-tags-->
-      <div class="files grid_4">
-        <%= render :partial => "block_archive" %>
-      </div><!-- end-archive -->
-      <div class="partners alfa grid_4">
-        <h1 class="title-partner">Parceiros</h1>
-        <h3 class="link-partner-pd omega alfa grid_2"><a href="http://#"></a></h3>
-        <h3 class="link-partner-cns omega alfa grid_2"><a href="http://www.redu.com.br"></a></h3>
-        <h3 class="link-partner-ccte omega alfa grid_2"><a href="http://www.redu.com.br"></a></h3>
-        <h3 class="link-partner-for omega alfa grid_2"><a href="http://www.redu.com.br"></a></h3>
-      </div>
-    </div>
-  </div>
-</div><!-- end-overlay -->
+<%= render :partial => "shared/sidebar", :locals => { :members => true } %>
