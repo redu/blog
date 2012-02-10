@@ -84,6 +84,10 @@ body .overlay {
   color: rgb(0, 0, 0);
 }
 
+.sidebar .some-users .about-us .member .link-member {
+  padding: 11px;
+}
+
 .sidebar .box-marks {
   float: right;
   background-color: rgb(255, 238, 215);
@@ -159,6 +163,7 @@ body .overlay {
   border-radius: 5px; 
 }
   
+
 .sidebar .files .title {
   letter-spacing: -2px;
   padding: 8px;
@@ -169,7 +174,7 @@ body .overlay {
 }
 
 .files .years .month {
-  padding: 5px 0px;
+  padding: 5px;
 }
   
 .files .month a,
@@ -438,8 +443,6 @@ clear: both;
   font-weight: 500;
   font-size: 30px;
   color: rgb(97, 160, 128);
-  overflow: hidden;
-  float:right;
 }
 
 .body-blog .sidebar .some-users {
@@ -455,10 +458,6 @@ clear: both;
   font-size: 15px;
 }
 
-.sidebar .some-users .about-us .member .link-member {
-  padding: 11px;
-}
-
 .boxshadow .body-blog .sidebar .some-users {
   -webkit-box-shadow: -3px 3px 0px 0px rgb(97, 160, 128);
   -moz-box-shadow:  -3px 3px 0px 0px rgb(97, 160, 128);
@@ -472,12 +471,14 @@ clear: both;
 }
 
 .sidebar .some-users .about-us .member .description {
+  margin-top: 3px;
   font-size: 11px;
   font-weight: normal;
   font-family: museo-slab, arial, sans-serif;
   color: rgb(109, 110, 111);
   float: right;
-  line-height: 12px;
+  margin-top: 3px;
+  line-height: 14px;
 }
 
 .textshadow .body-blog .sidebar {
@@ -659,7 +660,6 @@ clear: both;
   height: 77px;
   background-image: url("../images/new/redutech-low-horiz-a.png");
   margin-left: -18px;
-  text-indent: -9999px;
 }
 
 .footer .presentation-call {
@@ -745,164 +745,5 @@ clear: both;
 
 .footer .item-menu a:hover {
   background-color: white;
-  color: rgb(21, 138, 196);
-}
-
-.body .body-blog .tags-page {
-  background-color: rgb(255, 238, 215);
-  min-height: 40px;
-}
-
-.textshadow .body-blog .tags-page {
-  text-shadow: 0px 1px rgb(255, 255, 255);
-}
-
-.borderradius .body-blog .tags-page,
-.borderradius .body-blog .posts-page,
-.borderradius .body-blog .files-page {
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-}
-
-.boxshadow .body-blog .tags-page,
-.borderradius .body-blog .posts-page,
-.boxshadow .body-blog .files-page {
-  -webkit-box-shadow: 0px 1px 0px 0px rgb(255, 255, 255);
-  -moz-box-shadow: 0px 1px 0px 0px rgb(255, 255, 255);
-  box-shadow: 0px 1px 0px 0px rgb(255, 255, 255);
-}
-
-.body .body-blog .itens-tags-page  {
-  padding: 10px;
-}
-
-.body .body-blog .tags-page .bar,
-.body .body-blog .itens-files-page {
-  color: rgb(204, 204, 204);
-}
-
-.body .body-blog .tags-page .tag-page a {
-  text-decoration: none;
-  font-size: 17px;
-  font-weight: 500;
-  font-family: museo-sans, sans-serif;
-  color: rgb(255, 124, 53);
-}
-
-.body .body-blog .tags-page .tag-page a:hover {
-  color: rgb(243, 94, 0);
-}
-  
-.body .body-blog .tags-page .tag-page {
-    display: inline;
-    margin-top: 10px;
-}
-
-.body .body-blog .files-page {
-  background-color: rgb(219, 239, 247);
-  min-height: 40px;
-}
-
-.textshadow .body-blog .files-page {
-  text-shadow: 0px 1px rgb(255, 255, 255);
-}
-
-.body .body-blog .itens-files-page  {
-  padding: 10px;
-}
-
-
-.body .body-blog .files-page .file-page a {
-  text-decoration: none;
-  font-size: 17px;
-  font-weight: 500;
-  font-family: museo-sans, sans-serif;
-  color: rgb(77, 173, 214);
-}
-  
-.body .body-blog .files-page .file-page {
-    display: inline;
-    margin-top: 10px;
-}
-
-
-.body .body-blog .files-page .file-page a:hover {
-  color: rgb(21, 138, 196);
-}
-
-.body .body-blog .posts-page {
-  background-color: rgb(179, 179, 179);
-  min-height: 40px;
-}
-
-.textshadow .body-blog .posts-page {
-  text-shadow: 0px -1px rgb(109, 110, 111);
-}
-
-.body .body-blog .itens-posts-page  {
-  padding: 10px;
-}
-
-
-.body .body-blog .posts-page .post-page a {
-  text-decoration: none;
-  font-size: 17px;
-  font-weight: 500;
-  font-family: museo-sans, sans-serif;
-  color: rgb(255, 255, 255);
-}
-
-.body .body-blog .posts-page .post-page .bar {
-  color: rgb(255, 255, 255);
-}  
-  
-.body .body-blog .posts-page .post-page {
-    display: inline;
-    margin-top: 10px;
-}
-
-
-.body .body-blog .posts-page .post-page a:hover {
-  color: rgb(230, 230, 230);
-}
-
-.posts .text-box .text-heading,
-.posts .text-box .disordered-list,
-.posts .text-box .ordered-list {
-  font-size: 13px;
-  line-height: 18px;
-  font-weight: normal;
-  font-family: arial, sans-serif;
-}
-
-.posts .text-box .heading-2 {
-  font-size: 25px;
-  margin-top: 10px;
-  font-weight: bold;
-  font-family: arial, sans-serif;
-}
-  
-.posts .text-box .heading-3 {
-  font-size: 17px;
-  margin-top: 10px;
-  font-weight: bold;
-  font-family: arial, sans-serif;
-}
-
-.ordered-list {
-  display: block;
-  clear: both;
-  list-style-type: decimal;
-}
-
-.disordered-list {
-  list-style-type: disc;
-  padding: 20px 0px
-}
-
-.text-box-post {
-  border-bottom: dotted gray 1px;
-  margin-bottom: 300px;
-  padding-bottom: 30px;
+  color: rgb(21,138,196);
 }
