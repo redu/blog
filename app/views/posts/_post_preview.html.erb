@@ -1,0 +1,33 @@
+<% markparser = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true, :space_after_headers => false) %>
+
+<div class="post omega alfa grid_12">
+  <div class="date-post omega grid_1">
+    <h3 class="date">
+      <q class="day"><%= post_preview.created_at.to_datetime.strftime("%d")%></q>
+      <%= l post_preview.created_at.to_datetime, :format => ("%b %Y") %>
+    </h3>
+  </div>
+  <div class="title-post grid_11 alfa omega">
+    <%= link_to post_preview.title, post_preview, :class => "title grid_10" %>
+  </div>
+  <div class="grid_11 omega alfa informations">
+    <div class="author alfa omega grid_4">
+      <q class="by">
+        por <%= post_preview.user == nil ? 'Desconhecido' : link_to(post_preview.user.username, post_preview.user.profile_link, :class => 'link_author') %>
+      <q class="hour">
+        <%= post_preview.created_at.to_datetime.strftime(" às %H:%M") %>
+      </q>
+    </q>
+  </div>
+  <div class="subject omega grid_3">
+    <% post_preview.tags.each do |tag| %>
+      <%= link_to tag.name, tag_posts_path(tag), :class => "technology" %>
+    <% end %>
+  </div>
+</div>
+<div class="text-post alfa omega grid_11">
+  <p class="text alfa omega">
+    <%= raw markparser.render(truncate (truncate_html(post_preview.body, 250, "")), :length => 30000, :separator => " ", :omission => " ...") %>
+    <%= link_to " + leia mais", post_preview, :class => "ready-more" %>
+  </p>
+</div>

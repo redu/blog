@@ -31,8 +31,10 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-group :development do
+group :development, :test do
   gem 'therubyracer'
+  gem 'rspec-rails', '~> 2.6'
+  gem 'factory_girl_rails'
 end
 
 gem 'jquery-rails'

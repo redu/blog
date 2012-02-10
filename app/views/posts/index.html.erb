@@ -1,54 +1,34 @@
-<% markparser = Redcarpet::Markdown.new(Redcarpet::Render::HTML,
-        :autolink => true, :space_after_headers => false) %>
-<div style="margin: 0 50px 0 35px">
+<div class="overlay">
+  <div class="body container_16">
+    <div class="logo-top">
+      <div class="img-logo-top">
+        <a href="http://www.redu.com.br"></a>
+        <q class="blog">blog</q>
+      </div>
+      <div class="tecoteco">
+      </div>
+    </div>
+    <div class="body-blog omega alfa grid_16">
+      <%= render :partial => "post_preview", :collection => @posts %>
+    </div>
 
-<h1> Listing Posts </h1>
-
-<a href="/posts.rss">
-<img src="/assets/feed.jpg" alt="HTML tutorial" width="32" height="32" align="right"/>
-</a>
-
-<div style="float:right; margin-right:100px">
-  <h2>Tag List</h2>
-  <ul>
-    <%@tags.find_all {|tag| tag.posts.size > 0}.each do |tag_list|  %>
-      <li><%= link_to tag_list.name, {:id => tag_list.id, :controller => :posts, :action => 'search_tags'} %></li>
-    <% end %>
-  </ul>
-</div>
-
-<div>
-  <h2>Last Post's</h2>
-  <ul>
-  <% @posts.each do |post| %>
-	  <li>
-		<span><%= post.created_at.to_datetime.strftime("%d %b %y")%></span>
-	  	<h3><%= link_to post.title, post %></h3>, 
-		<span> por <%= getUsername(post) %>,<%= post.created_at.to_datetime.strftime(" às %H:%M")%></span>	
-		<% post.tags.each do |tag| %>
-			<%= link_to tag.name, {:id => tag.id, :action => "search_tags"}%>
-		<% end %>
-		
-		<div><%=raw markparser.render(truncate (truncate_html(post.body , 250, "")), :length => 30000 ,:separator => " ", :omission => " ..." )%></div>
-		<span><%= link_to "+ Leia mais", post %></span>
-	  </li>
-  <% end %>
-  </ul>
-</div>
-
-<div style="padding-bottom: 20px">
-<% if user_signed_in? %>
-  <b><%= link_to 'New post', new_post_path %></b> ||
-  <b><%= link_to 'Logout', destroy_user_session_path, :method => :delete %></b> ||
-  <b><%= link_to 'Tags', tags_path %></b>
-<% else %>
-  <b><%= link_to 'Login', new_user_session_path %></b>
-<% end %>
-</div>
-<div>
-  <%= form_tag "posts/search", :method => 'get' do %>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search posts", :name => nil %>
-  <% end %>
-</div>
-</div>
+    <div class="grid_4  alfa omega sidebar">
+      <div class="grid_4 alfa  some-users">
+        <%= render :partial => "block_members" %>
+      </div><!-- end-users -->
+      <div class="box-marks alfa grid_4">
+        <%= render :partial => "block_tags" %>
+      </div><!-- end-tags-->
+      <div class="files grid_4">
+        <%= render :partial => "block_archive" %>
+      </div><!-- end-archive -->
+      <div class="partners alfa grid_4">
+        <h1 class="title-partner">Parceiros</h1>
+        <h3 class="link-partner-pd omega alfa grid_2"><a href="http://#"></a></h3>
+        <h3 class="link-partner-cns omega alfa grid_2"><a href="http://www.redu.com.br"></a></h3>
+        <h3 class="link-partner-ccte omega alfa grid_2"><a href="http://www.redu.com.br"></a></h3>
+        <h3 class="link-partner-for omega alfa grid_2"><a href="http://www.redu.com.br"></a></h3>
+      </div>
+    </div>
+  </div>
+</div><!-- end-overlay -->

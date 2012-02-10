@@ -1,11 +1,12 @@
 <% markparser = Redcarpet::Markdown.new(Redcarpet::Render::HTML,
         :autolink => true, :space_after_headers => false) %>
 
-<span><%= @post.created_at.to_datetime.strftime("%d %b %y")%></span>
-        
+<span><%= l @post.created_at.to_datetime, :format => ("%d %b %y")%></span>
+
+<h3> blog / post </h3>
 <h1><%= raw @post.title %></h1>
 
-<span> por <%= @post.user.username %>,<%= @post.created_at.to_datetime.strftime("às %H:%M")%></span>
+<span> por <%= @post.user == nil ? 'Desconhecido' : link_to(@post.user.username, @post.user.profile_link) %>, <%= @post.created_at.to_datetime.strftime("às %H:%M")%></span>
 
 <%= raw markparser.render(@post.body) %>
 
@@ -13,7 +14,7 @@
   <h3>Tags:</h3>
   <ul>
   <% @post.tags.all.collect do |tag| %>
-    <li><%= link_to tag.name, {:action => "search_tags", :id => tag.id} %></li>
+    <li><%= link_to tag.name, tag_posts_path(tag)%></li>
   <% end %>
   </ul><br />
 <% end %>
