@@ -6,7 +6,7 @@
   group_years.keys.each do |key|
 %>
 <ul class="years">
-  <h1 class="year"><%= key %></h1>
+  <li class="year"><%= key %></li>
   <ul class="months">
     <% group_years[key].group_by { |post| l post.created_at, :format=>('%B,%m')}.keys.each do |month| %>
       <li class="month">

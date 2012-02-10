@@ -16,7 +16,7 @@
       <% @posts.each do |post| %>
         <li>
           <%= link_to post.title, post %>, by
-          <%= User.find(post.user_id).username %>
+          <%= render :partial => 'author_link', :locals => { :post => post} %>
         </li>
       <% end %>
     </ul>

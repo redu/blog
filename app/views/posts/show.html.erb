@@ -1,12 +1,87 @@
 <% markparser = Redcarpet::Markdown.new(Redcarpet::Render::HTML,
         :autolink => true, :space_after_headers => false) %>
 
-<span><%= l @post.created_at.to_datetime, :format => ("%d %b %y")%></span>
+<!-- ---- --
+  -- BODY --
+  -- ---- -->
+  
+<div class="overlay">
+  <div class="body container_16">
+    <div class="logo-top">
+      <span class="tecoteco">Teco Teco</span>        
+    </div>
+    <div class="body-blog omega alfa grid_16">
+      <div class="posts-page">
+        <ul class="itens-posts-page">
+         <li class="post-page"><%= link_to 'blog', root_path %><span class="bar"> /</span></li>
+         <li class="post-page"><%= link_to 'post', @post %><span class="bar"> /</span></li>
+        </ul>
+      </div>
+      <div class="box-posts omega alfa grid_12">
+        <ol class="posts omega alfa">
+          <li class="post grid_12 omega alfa">
+            <span class="date grid_1 omega alfa"><span class="day"><%= @post.created_at.day %></span> <%= l @post.created_at.to_datetime, :format => ("%b") %> <%= @post.created_at.year %></span>
+            <div class="box-title grid_11 alfa omega">
+              <%= link_to @post.title, @post, :class => 'title grid_10' %>
+            </div>
+            <div class="grid_11 omega alfa informations">
+              <div class="author alfa omega grid_4">
+                <span class="add-informations">por <%= render :partial => 'author_link', :locals => { :post => @post} %><span class="add-informations"><%= @post.created_at.to_datetime.strftime("às %H:%M") %></span></span>
+              </div>
+              <ul class="tags omega grid_3"> 
+              <% if @post.tags.size > 0 %>
+                <% @post.tags.all.collect do |tag| %>
+                  <li><%= link_to tag.name, tag_posts_path(tag), :class => 'tag'%></li>
+                <% end %>
+              <% end %>     
+              </ul>
+            </div>
+            <div class="text-box text-box-post alfa omega grid_11">
+              <%= raw markparser.render(@post.body) %>
+            </div>
+          </li>             
+        </ol>
+      </div>
+      
+<!-- ------- --
+  -- SIDEBAR --
+  -- ------- -->
+      <div class="grid_4  alfa omega sidebar">
+      
+      <!-- Marcadores -->
+        <div class="box-marks alfa  grid_4">
+          <ul class="marks alfa omega grid_4">
+            <li class="title"> Marcadores </li>
+              <% @tags.each do |tag| %>
+                <li class="mark"><%= link_to tag.name, tag_posts_path(tag) %></li>
+              <% end %>
+          </ul>
+        </div>
+        
+        <!-- Arquivos -->
+        <%= render :partial => 'block_archive' %>
+        
+        <!-- Parceiros -->
+        <ul class="partners alfa grid_4"> 
+          <li class="title">Parceiros</li>
+          <li class="partner-pd omega alfa grid_2"><a href="http://#">pd</a></li> 
+          <li class="partner-cns omega alfa grid_2"><a href="http://www.redu.com.br">cns</a></li>
+          <li class="partner-ccte omega alfa grid_2"><a href="http://www.redu.com.br">ccte</a></li>
+          <li class="partner-for omega alfa grid_2"><a href="http://www.redu.com.br">for</a></li>
+        </ul>
+      </div>    
+    </div>
+  </div>
+  <div class="push"></div>
+</div>
 
-<h3> blog / post </h3>
-<h1><%= raw @post.title %></h1>
+<!-- ----------- --
+ !-- VIEW ANTIGA --
+ !-- ----------- -->
+ 
+<!--span><%= l @post.created_at.to_datetime, :format => ("%d %b %y")%></span>
 
-<span> por <%= @post.user == nil ? 'Desconhecido' : link_to(@post.user.username, @post.user.profile_link) %>, <%= @post.created_at.to_datetime.strftime("às %H:%M")%></span>
+<span> por <%= render :partial => 'author_link', :locals => { :post => @post} %>, <%= @post.created_at.to_datetime.strftime("às %H:%M") %></span>
 
 <%= raw markparser.render(@post.body) %>
 
@@ -29,4 +104,4 @@
 
 <div>
   <%= link_to 'Back', posts_path %>
-</div>
+</div-->

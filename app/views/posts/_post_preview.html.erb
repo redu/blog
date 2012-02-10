@@ -13,7 +13,7 @@
   <div class="grid_11 omega alfa informations">
     <div class="author alfa omega grid_4">
       <q class="by">
-        por <%= post_preview.user == nil ? 'Desconhecido' : link_to(post_preview.user.username, post_preview.user.profile_link, :class => 'link_author') %>
+        por <%= render :partial => 'author_link', :locals => { :post => post_preview} %>
       <q class="hour">
         <%= post_preview.created_at.to_datetime.strftime(" às %H:%M") %>
       </q>
