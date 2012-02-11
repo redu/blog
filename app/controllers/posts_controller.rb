@@ -58,7 +58,8 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @tags = @post.tags
+    # @tags = @post.tags by embs
+    @tags = Tag.all
     respond_to do |format|
       format.html # show.html.erb
     end

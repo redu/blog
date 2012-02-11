@@ -1,0 +1,1 @@
+<%= post.user == nil ? link_to('Desconhecido', :blank, :class => 'link-author') : link_to(post.user.username, post.user.profile_link, :class => 'link-author') %>

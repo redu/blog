@@ -1,17 +1,49 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Tags</title>
-  <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-  <%= raw wymeditor_initialize %>
-</head>
-<body>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
-<%= yield %>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <title>Redu</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="http://use.typekit.com/lpo4rgu.js"></script>
+    <script type="text/javascript">try{ Typekit.load(); }catch(e){}</script>
 
-</body>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    <%= raw wymeditor_initialize %>
+  </head>
+  <body>
+    <div class="overlay">
+      <div class="body container_16">
+        <div class="logo-top">
+          <div class="imagem">
+            <a href="http://www.redu.com.br">Redu</a>
+            <span class="blog">blog</span>
+          </div>
+          <span class="tecoteco">Teco Teco</span>
+        </div>
+        <div class="body-blog omega alfa grid_16">
+          <div class="tags-page">
+            <ul class="itens-tags-page">
+              <li class="tag-page">
+                <%= link_to 'blog', root_path %>
+                <span class="bar"> /</span>
+              </li>
+              <li class="tag-page">
+                <%= link_to 'marcadores', root_path %>
+                <span class="bar"> /</span>
+              </li>
+              <li class="tag-page">
+                <%= link_to Tag.find(params[:tag_id]).name, tag_posts_path(params[:tag_id]) %>
+              </li>
+            </ul>
+          </div>
+          <%= yield %>
+        </div>
+      </div>
+      <div class="push"></div>
+    </div>
+    <%= render :partial => "shared/footer" %>
+  </body>
 </html>

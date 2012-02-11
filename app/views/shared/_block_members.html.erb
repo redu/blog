@@ -1,0 +1,15 @@
+<div class="grid_4 alfa some-users">
+  <ul class="about-us grid_4 omega alfa">
+    <li class="title">Quem Somos </li>
+    <% User.all.each do |user| %>
+      <li class="member">
+        <%= link_to user.username, user.profile_link, :class => "link-member" %>
+        <span class="description grid_3">
+          <%= user.description %>
+        </span>
+      </li>
+    <% end %>
+  </ul>
+  <span><%= link_to "Espera aím tem mais!", root_path, :class => "stop-here grid_3" %></span>
+</div>
+

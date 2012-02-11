@@ -1,32 +1,36 @@
-<% markparser = Redcarpet::Markdown.new(Redcarpet::Render::HTML,
-        :autolink => true, :space_after_headers => false) %>
+<% markparser = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true, :space_after_headers => false) %>
 
-<span><%= l @post.created_at.to_datetime, :format => ("%d %b %y")%></span>
+<div class="posts-page">
+  <ul class="itens-posts-page">
+    <li class="post-page"><%= link_to 'blog', root_path %><span class="bar"> /</span></li>
+    <li class="post-page"><%= link_to 'post', @post %><span class="bar"> /</span></li>
+  </ul>
+</div><! -- end navbar -->
 
-<h3> blog / post </h3>
-<h1><%= raw @post.title %></h1>
-
-<span> por <%= @post.user == nil ? 'Desconhecido' : link_to(@post.user.username, @post.user.profile_link) %>, <%= @post.created_at.to_datetime.strftime("às %H:%M")%></span>
-
-<%= raw markparser.render(@post.body) %>
-
-<% if @post.tags.size > 0 %>
-  <h3>Tags:</h3>
-  <ul>
-  <% @post.tags.all.collect do |tag| %>
-    <li><%= link_to tag.name, tag_posts_path(tag)%></li>
-  <% end %>
-  </ul><br />
-<% end %>
-
-<div id="options">
-<% if user_signed_in? %>
-  <%= link_to 'Edit', edit_post_path %> |
-  <%= link_to 'Delete', [@post], :method => :delete, :confirm => 'Delete?' %>
-<% end %>
+<div class="box-posts omega alfa grid_12">
+  <ol class="posts omega alfa">
+    <li class="post grid_12 omega alfa">
+      <span class="date grid_1 omega alfa"><span class="day"><%= @post.created_at.day %></span> <%= l @post.created_at.to_datetime, :format => ("%b") %> <%= @post.created_at.year %></span>
+      <div class="box-title grid_11 alfa omega">
+        <%= link_to @post.title, @post, :class => 'title grid_10' %>
+      </div>
+      <div class="grid_11 omega alfa informations">
+        <div class="author alfa omega grid_4">
+          <span class="add-informations">por <%= render :partial => 'author_link', :locals => { :post => @post} %><span class="add-informations"><%= @post.created_at.to_datetime.strftime("às %H:%M") %></span></span>
+        </div>
+        <ul class="tags omega grid_6">
+          <% if @post.tags.size > 0 %>
+            <% @post.tags.all.collect do |tag| %>
+              <li><%= link_to tag.name, tag_posts_path(tag), :class => 'tag'%></li>
+            <% end %>
+          <% end %>
+        </ul>
+      </div>
+      <div class="text-box text-box-post alfa omega grid_11">
+        <%= raw markparser.render(@post.body) %>
+      </div>
+    </li>
+  </ol>
 </div>
-<br />
 
-<div>
-  <%= link_to 'Back', posts_path %>
-</div>
+<%= render :partial => "shared/sidebar", :locals => { :members => false } %>

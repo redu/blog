@@ -1,0 +1,10 @@
+<div class="box-marks alfa grid_4">
+  <ul class="marks alfa omega grid_4">
+    <li class="title"> Marcadores </li>
+    <%@tags.find_all {|tag| tag.posts.size > 0}.each do |tag_list|  %>
+      <li class="mark">
+        <%= link_to tag_list.name, tag_posts_path(tag_list)  %>
+      </li>
+    <% end %>
+  </ul>
+</div>

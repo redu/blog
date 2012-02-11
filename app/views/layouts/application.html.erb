@@ -14,9 +14,21 @@
     <%= raw wymeditor_initialize %>
   </head>
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <div class="overlay">
+      <div class="body container_16">
+        <div class="logo-top">
+          <div class="imagem">
+            <a href="http://www.redu.com.br">Redu</a>
+            <span class="blog">blog</span>
+          </div>
+          <span class="tecoteco">Teco Teco</span>
+        </div>
+        <div class="body-blog omega alfa grid_16">
+          <%= yield %>
+        </div>
+      </div>
+      <div class="push"></div>
+    </div>
     <%= render :partial => "shared/footer" %>
   </body>
 </html>
