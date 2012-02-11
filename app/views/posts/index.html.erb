@@ -1,9 +1,10 @@
 <div class="box-posts omega alfa grid_12">
   <ol class="posts omega alfa">
-  <%= render :partial => "post_preview", :collection => @posts %>
+
+    <%= render :partial => "post_preview", :collection => @posts %>
   </ol>
 </div>
-<%= render :partial => "shared/sidebar", :locals => { :members => true } %>
+<%= render :partial => "shared/sidebar", :locals => { :members => (true unless params[:tag_id]) } %>
 <div class="show-more grid_3">
-    <%= link_to 'Mostrar Mais...', root_path, :class =>  "link-show-more icon-seta-gray_8_12-before" %>
+  <%= link_to 'Mostrar Mais...', root_path, :class =>  "link-show-more icon-seta-gray_8_12-before" %>
 </div>

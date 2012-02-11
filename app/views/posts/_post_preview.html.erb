@@ -16,7 +16,7 @@
         <%= post_preview.created_at.to_datetime.strftime(" às %H:%M") %>
     </span></span>
   </div>
-  <ul class="tags omega grid_3">
+  <ul class="tags omega grid_6">
     <% post_preview.tags.each do |tag| %>
       <li><%= link_to tag.name, tag_posts_path(tag), :class => "tag" %></li>
     <% end %>
