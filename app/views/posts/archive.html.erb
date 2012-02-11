@@ -21,33 +21,12 @@
    <% end %>
   </ul>
 </div>
-
-<ol class="posts omega alfa">
-  <li class="post grid_12 omega alfa first-post">
-
-  </li>
-</ol>
-
-
-
-
-
-
-
-
-<div>
-    <h2>Posts of <%= l Date.today.beginning_of_year.advance(:months => (params[:month].to_i-1)), :format => "%B" %></h2>
-    <ul>
-      <% @posts.each do |post| %>
-        <li>
-          <%= link_to post.title, post %>, by
-          <%= render :partial => 'author_link', :locals => { :post => post} %>
-        </li>
-      <% end %>
-    </ul>
-  </div>
-
-  <div style="padding-bottom: 20px">
-    <%= link_to 'Back', posts_path %>
-  </div>
+<div class="box-posts omega alfa grid_12">
+  <ol class="posts omega alfa">
+    <%= render :partial => 'post_preview', :collection => @posts %>
+  </ol>
+</div>
+<%= render :partial => "shared/sidebar", :locals => { :members => false } %>
+<div class="show-more grid_3">
+    <%= link_to 'Mostrar Mais...', root_path, :class =>  "link-show-more icon-seta-gray_8_12-before" %>
 </div>
