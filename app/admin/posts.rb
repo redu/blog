@@ -1,3 +1,3 @@
 ActiveAdmin.register Post do
-  menu false
+  form :partial => "posts/form"
 end
