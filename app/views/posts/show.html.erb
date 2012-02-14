@@ -3,20 +3,20 @@
 <div class="posts-page">
   <ul class="itens-posts-page">
     <li class="post-page"><%= link_to 'blog', root_path %><span class="bar"> /</span></li>
-    <li class="post-page"><%= link_to 'post', @post %><span class="bar"> /</span></li>
+    <li class="post-page"><%= link_to 'post', @post %></li>
   </ul>
 </div><! -- end navbar -->
 
 <div class="box-posts omega alfa grid_12">
   <ol class="posts omega alfa">
     <li class="post grid_12 omega alfa">
-      <span class="date grid_1 omega alfa"><span class="day"><%= @post.created_at.day %></span> <%= l @post.created_at.to_datetime, :format => ("%b") %> <%= @post.created_at.year %></span>
+      <span class="date grid_1 omega alfa"><span class="day"><%= @post.created_at.day %></span> <%= (l @post.created_at.to_datetime, :format => ("%b")).downcase %> <%= @post.created_at.year %></span>
       <div class="box-title grid_11 alfa omega">
         <%= link_to @post.title, @post, :class => 'title grid_10' %>
       </div>
       <div class="grid_11 omega alfa informations">
         <div class="author alfa omega grid_4">
-          <span class="add-informations">por <%= render :partial => 'author_link', :locals => { :post => @post} %><span class="add-informations"><%= @post.created_at.to_datetime.strftime("às %H:%M") %></span></span>
+          <span class="add-informations">por <%= render :partial => 'author_link', :locals => { :post => @post} %><span class="add-informations"><%= @post.created_at.to_datetime.strftime(", às %H:%M") %></span></span>
         </div>
         <ul class="tags omega grid_6">
           <% if @post.tags.size > 0 %>

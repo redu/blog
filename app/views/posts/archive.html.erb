@@ -6,17 +6,21 @@
     </li>
     <li class="file-page">
       <%= link_to 'arquivos', archive_posts_path %>
-      <span class="bar"> /</span>
+      <% if params[:year] %>
+        <span class="bar"> /</span>
+      <% end %>
     </li>
     <% if params[:year] %>
       <li class="file-page"><!-- year -->
         <%= link_to params[:year].to_s, {:controller => :posts, :action => 'archive', :year => params[:year] } %>
-        <span class="bar"> /</span>
+        <% if params[:month] %>
+          <span class="bar"> /</span>
+        <% end %>
       </li>
    <% end %>
    <% if params[:month] %>
      <li class="file-page"><!-- month -->
-       <%= link_to (l Date.today.beginning_of_year.advance(:months => (params[:month].to_i-1)), :format => "%B"), {:controller => :posts, :action => 'archive', :month => params[:month] } %>
+       <%= link_to (l Date.today.beginning_of_year.advance(:months => (params[:month].to_i-1)), :format => "%B").downcase, {:controller => :posts, :action => 'archive', :month => params[:month] } %>
      </li>
    <% end %>
   </ul>
