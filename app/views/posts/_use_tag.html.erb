@@ -1,5 +1,13 @@
 <div>
-  <%= select ('tag', 'id', options_for_select(Tag.all.collect {|t| [t.name, t.id]}, :selected => @post.tags.all.collect {|t| t.id}), {}, :multiple => '', :class => 'chzn-select', :style => 'width: 300px', 'data-placeholder' => 'Select a tag') %>
+  <%= select ('tag', 'id', 
+              options_for_select(Tag.all.collect {|t| [t.name, t.id]}, 
+                                 :selected => @post.tags.all.collect {|t| t.id}), {}, 
+                                 :multiple => '', :class => 'chzn-select', 
+                                 :style => 'width: 300px', 
+                                 'data-placeholder' => 'Select a tag') %>
 </div>
 
-<script type="text/javascript"> $(".chzn-select").chosen(); $(".chzn-select-deselect").chosen({allow_single_deselect:true}); </script>
+<script type="text/javascript"> 
+  $(".chzn-select").chosen(); 
+  $(".chzn-select-deselect").chosen({allow_single_deselect:true}); 
+</script>

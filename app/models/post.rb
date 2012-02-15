@@ -27,7 +27,8 @@ class Post < ActiveRecord::Base
 
     Post.all.collect do |post|
       Post.relevant_terms(query).collect do |term|
-        if post.body.downcase.include? term.downcase or post.title.downcase.include? term.downcase
+        if (post.body.downcase.include? term.downcase or 
+            post.title.downcase.include? term.downcase)
           result_posts << post
         end
       end

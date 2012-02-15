@@ -1,4 +1,6 @@
-<% markparser = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true, :space_after_headers => false) %>
+<% markparser = Redcarpet::Markdown.new(Redcarpet::Render::HTML, 
+                                        :autolink => true, 
+                                        :space_after_headers => false) %>
 
 <li class="post grid_12 omega alfa first-post">
   <span class="date grid_1 omega alfa">
@@ -12,7 +14,8 @@
   <div class="grid_11 omega alfa informations">
     <div class="author alfa omega grid_4">
       <span class="add-informations">
-        por <%= render :partial => 'author_link', :locals => { :post => post_preview} %>
+        por <%= render :partial => 'author_link', 
+                       :locals => { :post => post_preview} %>
       <span class="add-informations">
         <%= post_preview.created_at.to_datetime.strftime(", às %H:%M") %>
     </span></span>
@@ -25,7 +28,9 @@
 </div>
 <div class="text-box alfa omega grid_11">
   <div class="text alfa omega">
-    <%= raw markparser.render(truncate (truncate_html(post_preview.body, 250, "")), :length => 30000, :separator => " ", :omission => " ...") %>
+    <%= raw markparser.render(truncate (truncate_html(post_preview.body, 250, "")), 
+                              :length => 30000, :separator => " ", 
+                              :omission => " ...") %>
     <%= link_to " + leia mais", post_preview, :class => "read-more" %>
   </div>
 </div>

@@ -8,9 +8,12 @@
   <ul class="years">
     <li class="year"><%= key %></li>
     <ul class="months">
-      <% group_years[key].group_by { |post| l post.created_at, :format=>('%B,%m')}.keys.each do |month| %>
+      <% group_years[key].group_by { |post| l post.created_at, 
+                                     :format=>('%B,%m')}.keys.each do |month| %>
         <li class="month">
-          <%= link_to month.split(',')[0], {:controller => :posts, :action => 'archive', :year=>key, :month => month.split(',')[1]} %>
+          <%= link_to month.split(',')[0], {:controller => :posts, 
+                                            :action => 'archive', :year=>key, 
+                                            :month => month.split(',')[1]} %>
         </li>
       <% end %>
     </ul>

@@ -2,7 +2,8 @@ xml.instruct! :xml, :version => "1.0"
 xml.rss :version => "2.0" do
   xml.channel do
     xml.title "Redu Blog"
-    xml.description "Blog da plataforma educacional Redu - Redu Educational Technologies"
+    xml.description ("Blog da plataforma educacional Redu - Redu Educational 
+                     Technologies")
     xml.link posts_url
  
     for post in @posts
