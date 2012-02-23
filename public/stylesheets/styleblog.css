@@ -2,6 +2,9 @@
   margin: 0; /* Identar */
 }
 
+.box-posts {
+  overflow: hidden;
+}
 
 html {
   clear: both;
@@ -297,6 +300,7 @@ body .overlay {
   color: rgb(179, 179, 179);
   float: left;
   margin-left: 0;
+  clear: both;
 }
 
 .textshadow .body-blog .posts .date {
@@ -426,14 +430,6 @@ clear: both;
   clear: both;
 }
 
-.posts .post .date {
-  float:left;
-  clear: both;
-  font-family: museo-slab, arial, sans-serif;
-  font-weight: 500;
-  font-size: 17px;
-}
-
 .sidebar .some-users .about-us {
   font-family: museo-sans, arial, sans-serif;
   font-weight: 500;
@@ -441,6 +437,8 @@ clear: both;
   color: rgb(97, 160, 128);
   overflow: hidden;
   padding-top: 8px;
+  float: right;
+  margin-right: -6px;
 }
 
 .body-blog .sidebar .some-users {
@@ -536,7 +534,7 @@ clear: both;
   text-decoration: none;
   color: rgb(77, 173, 214);
   overflow: hidden;
-  display: block;
+  display: block;  
 }
 
 .body-blog .show-more {
@@ -912,4 +910,8 @@ clear: both;
   padding-bottom: 30px;
 }
 
-
+.box-posts .posts .post .month,
+.box-posts .posts .post .year,
+.box-posts .posts .post .day {
+  float: right;
+}
