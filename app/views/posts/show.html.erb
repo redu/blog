@@ -1,5 +1,5 @@
-<% markparser = Redcarpet::Markdown.new(Redcarpet::Render::HTML, 
-                                        :autolink => true, 
+<% markparser = Redcarpet::Markdown.new(Redcarpet::Render::HTML,
+                                        :autolink => true,
                                         :space_after_headers => false) %>
 
 <div class="posts-page">
@@ -14,11 +14,8 @@
 <div class="box-posts omega alfa grid_12">
   <ol class="posts omega alfa">
     <li class="post grid_12 omega alfa">
-      <span class="date grid_1 omega alfa">
-        <span class="day"><%= @post.created_at.day %></span> 
-        <%= (l @post.created_at.to_datetime, :format => ("%b")).downcase %> 
-        <%= @post.created_at.year %>
-      </span>
+      <%= render :partial => 'posts/post_date',
+                 :locals => { :post => @post } %>
       <div class="box-title grid_11 alfa omega">
         <%= link_to @post.title, @post, :class => 'title grid_10' %>
       </div>

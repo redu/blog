@@ -1,0 +1,10 @@
+<span class="date grid_1 omega alfa">
+  <span class="day"><%= post.created_at.to_datetime.strftime('%d') %></span>
+  <span class="month">
+    <%= (l post.created_at.to_datetime, :format => ("%b")).downcase %>
+  </span>
+  <span class="year">
+    <%= post.created_at.year %>
+  </span>
+</span>
+
