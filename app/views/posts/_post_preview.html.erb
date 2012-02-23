@@ -1,9 +1,12 @@
-<% markparser = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true, :space_after_headers => false) %>
+<% markparser = Redcarpet::Markdown.new(Redcarpet::Render::HTML, 
+                                        :autolink => true, 
+                                        :space_after_headers => false) %>
 
 <li class="post grid_12 omega alfa first-post">
   <span class="date grid_1 omega alfa">
     <span class="day"><%= post_preview.created_at.to_datetime.strftime("%d")%></span>
-    <%= l post_preview.created_at.to_datetime, :format => ("%b %Y") %>
+    <%= (l post_preview.created_at.to_datetime, :format => ("%b")).downcase %>
+    <%= (l post_preview.created_at.to_datetime, :format => ("%Y")) %>
   </span>
   <div class="box-title grid_11 alfa omega">
     <%= link_to post_preview.title, post_preview, :class => "title grid_10" %>
@@ -11,9 +14,10 @@
   <div class="grid_11 omega alfa informations">
     <div class="author alfa omega grid_4">
       <span class="add-informations">
-        por <%= render :partial => 'author_link', :locals => { :post => post_preview} %>
+        por <%= render :partial => 'author_link', 
+                       :locals => { :post => post_preview} %>
       <span class="add-informations">
-        <%= post_preview.created_at.to_datetime.strftime(" às %H:%M") %>
+        <%= post_preview.created_at.to_datetime.strftime(", às %H:%M") %>
     </span></span>
   </div>
   <ul class="tags omega grid_6">
@@ -24,7 +28,9 @@
 </div>
 <div class="text-box alfa omega grid_11">
   <div class="text alfa omega">
-    <%= raw markparser.render(truncate (truncate_html(post_preview.body, 250, "")), :length => 30000, :separator => " ", :omission => " ...") %>
+    <%= raw markparser.render(truncate (truncate_html(post_preview.body, 250, "")), 
+                              :length => 30000, :separator => " ", 
+                              :omission => " ...") %>
     <%= link_to " + leia mais", post_preview, :class => "read-more" %>
   </div>
 </div>

@@ -5,18 +5,24 @@
       <span class="bar"> /</span>
     </li>
     <li class="file-page">
-      <%= link_to 'arquivos', archive_posts_path %>
+      <a>arquivos</a>
       <span class="bar"> /</span>
     </li>
     <% if params[:year] %>
       <li class="file-page"><!-- year -->
-        <%= link_to params[:year].to_s, {:controller => :posts, :action => 'archive', :year => params[:year] } %>
-        <span class="bar"> /</span>
+        <%= link_to params[:year].to_s, {:controller => :posts, :action => 'archive', 
+                                         :year => params[:year] } %>
+        <% if params[:month] %>
+          <span class="bar"> /</span>
+        <% end %>
       </li>
    <% end %>
    <% if params[:month] %>
      <li class="file-page"><!-- month -->
-       <%= link_to (l Date.today.beginning_of_year.advance(:months => (params[:month].to_i-1)), :format => "%B"), {:controller => :posts, :action => 'archive', :month => params[:month] } %>
+       <%= link_to(
+          (l Date.today.beginning_of_year.advance(:months => (params[:month].to_i-1)), 
+           :format => "%B").downcase, 
+          {:controller => :posts, :action => 'archive', :month => params[:month] }) %>
      </li>
    <% end %>
   </ul>
@@ -29,5 +35,7 @@
 </div>
 <%= render :partial => "shared/sidebar", :locals => { :members => false } %>
 <div class="show-more grid_3">
-    <%= link_to 'Mostrar Mais...', root_path, :class =>  "link-show-more icon-seta-gray_8_12-before" %>
+    <%= link_to 'Mostrar Mais...', root_path, 
+                :class =>  "link-show-more icon-seta-gray_8_12-before" %>
 </div>
+<div class="push"></div>

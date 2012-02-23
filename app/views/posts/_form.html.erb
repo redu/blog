@@ -1,3 +1,4 @@
+<%= raw wymeditor_initialize %>
 <%= form_for(@post) do |form| %>
 
   <div>
@@ -11,8 +12,8 @@
   </div>
 
 	<br />
-  <%= render :partial => 'use_tag',
-    :locals => { :form => form } %>
+  <%= render :partial => 'posts/use_tag',
+     :locals => { :form => form } %>
   <br/>
 
   <div>
