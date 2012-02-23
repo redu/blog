@@ -4,6 +4,11 @@
 
 .box-posts {
   overflow: hidden;
+  margin-left: 5px;
+}
+
+.text-box .text-box-post p {
+  width: 630px;
 }
 
 html {
@@ -220,8 +225,9 @@ body .overlay {
 }
 
 .partners .partner-ccte {
+  background-repeat: no-repeat;
   width: 150px;
-  margin-left: -12px;
+  margin-left: 12px;
   margin-top: 20px;
   height: 50px;
   background-image: url("../images/new/parceiro-ccte.png");
@@ -407,7 +413,8 @@ body .overlay {
 
 .posts .post .text-box {
   float: right;
-  padding-right: 10px;
+  margin-right: 10px;
+  overflow: hidden;
 }
 
 .posts .post .text-box .text {
@@ -425,7 +432,7 @@ clear: both;
 }
 
 .body-blog .posts .post {
-  margin-top: 40px;
+  margin-top: 20px;
   float: right;
   clear: both;
 }

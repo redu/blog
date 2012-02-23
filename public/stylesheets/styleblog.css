@@ -4,6 +4,11 @@
 
 .box-posts {
   overflow: hidden;
+  margin-left: 5px;
+}ight
+
+.text-box .text-box-post p {
+  width: 640px;
 }
 
 html {
@@ -220,6 +225,7 @@ body .overlay {
 }
 
 .partners .partner-ccte {
+  background-repeat: no-repeat;
   width: 150px;
   margin-left: -12px;
   margin-top: 20px;
@@ -490,7 +496,7 @@ clear: both;
   font-family: museo-sans, arial, sans-serif;
   font-weight: 500;
   font-size: 30px;
-  color: rgb(204, 204, 204);
+  color: rgb(204, 204, 204);    background-repeat: no-repeat;
 }
 
 .posts .post .day {
