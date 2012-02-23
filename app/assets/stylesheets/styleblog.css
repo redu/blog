@@ -4,11 +4,11 @@
 
 .box-posts {
   overflow: hidden;
-  margin-left: 5px;
+  margin-left: 10px;
 }
 
-.text-box .text-box-post p {
-  width: 630px;
+.posts .post .text-box img {
+  max-width: 630px;
 }
 
 html {
@@ -196,7 +196,10 @@ body .overlay {
 
 .files .years .year {
   margin-left: 8px;
+  font-family: museo-sans, arial, sans-serif;
   padding: 4px;
+  font-size: 17px;
+  font-weight: 100;
 }
 
 .sidebar .partners {
@@ -282,6 +285,7 @@ body .overlay {
   margin-left: 700px;
   text-indent: -9999px;
   display: block;
+  margin-top: 9px;
 }
 
 .logo-top .imagem .blog {
@@ -306,6 +310,7 @@ body .overlay {
   color: rgb(179, 179, 179);
   float: left;
   margin-left: 0;
+  margin-top: 7px;
   clear: both;
 }
 
@@ -500,9 +505,15 @@ clear: both;
   color: rgb(204, 204, 204);
 }
 
-.posts .post .day {
+.posts .post .day{
   font-size: 30px;
   font-weight: 300;
+  line-height: 30px;
+}
+
+.box-posts .posts .post .year,
+.box-posts .posts .post .day {
+  line-height: 13px;
 }
 
 .imagens-inferior .zepi {
