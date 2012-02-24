@@ -35,6 +35,7 @@ group :development, :test do
   gem 'therubyracer'
   gem 'rspec-rails', '~> 2.6'
   gem 'factory_girl_rails'
+  gem 'shoulda-matchers'
 end
 
 gem 'jquery-rails'
