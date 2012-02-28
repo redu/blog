@@ -508,12 +508,15 @@ clear: both;
 .posts .post .day{
   font-size: 30px;
   font-weight: 300;
+  line-height: 8px;
+}
+
+.box-posts .posts .post .month {
   line-height: 30px;
 }
 
-.box-posts .posts .post .year,
-.box-posts .posts .post .day {
-  line-height: 13px;
+.box-posts .posts .post .year {
+  line-height: 0px;
 }
 
 .imagens-inferior .zepi {
