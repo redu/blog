@@ -1,17 +1,21 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.3'
-
-gem 'redcarpet'
-
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
+# Rails
+gem 'rails', '3.1.3'
+
+# Active Admin
+gem 'activeadmin', '~> 0.3.2'
+
+# SqLite
 gem 'sqlite3'
 
+# JSon
 gem 'json'
 
-gem 'activeadmin', '~> 0.3.2'
+# Meta Search
 gem "meta_search",    '>= 1.1.0.pre'
 
 # RedCarpet
@@ -23,6 +27,18 @@ gem 'devise'
 # Gem necessária para configuração do Action Mailer
 gem 'tlsmail'
 
+# JQuery Rails
+gem 'jquery-rails'
+
+# WYMEditor
+gem 'wymeditor'
+
+# Nokogiri
+gem 'nokogiri'
+
+# Ruby Debugger
+gem 'ruby-debug'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -31,18 +47,13 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+# Gems utilizadas nos ambientes de desenvolvimento e testes.
 group :development, :test do
   gem 'therubyracer'
   gem 'rspec-rails', '~> 2.6'
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
 end
-
-gem 'jquery-rails'
-
-gem 'wymeditor'
-
-gem 'nokogiri'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -52,7 +63,3 @@ gem 'nokogiri'
 
 # Deploy with Capistrano
 # gem 'capistrano'
-
-# To use debugger
-# gem 'ruby-debug'
-
