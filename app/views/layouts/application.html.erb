@@ -24,6 +24,10 @@
           <span class="tecoteco">Teco Teco</span>
         </div>
         <div class="body-blog omega alfa grid_16">
+        <% flash.each do |key, value| %>
+          <li><%= content_tag(:div, value, :class => "flash #{key}") %></li>
+        <% end %>
+        <br />
           <%= yield %>
         </div>
       </div>

@@ -6,7 +6,5 @@
 </div>
 <%= render :partial => "shared/sidebar", 
            :locals => { :members => (true unless params[:tag_id]) } %>
-<div class="show-more grid_3">
-  <%= link_to 'Mostrar Mais...', root_path, 
-              :class =>  "link-show-more icon-seta-gray_8_12-before" %>
-</div>
+<%= link_to 'Mostrar Mais...', root_path, 
+          :class =>  "link-show-more icon-seta-gray_8_12-before show-more grid_3" %>
