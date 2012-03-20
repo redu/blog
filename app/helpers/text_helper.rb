@@ -8,6 +8,11 @@ module TextHelper
     content_length > actual_length ? doc.truncate(actual_length).inner_html + ellipsis : text.to_s
   end
 
+  private
+
+  def truncate_html_tag(text, tag)
+  end
+
 end
 
 module NokogiriTruncator
@@ -37,5 +42,3 @@ end
 Nokogiri::HTML::DocumentFragment.send(:include, NokogiriTruncator::NodeWithChildren)
 Nokogiri::XML::Element.send(:include, NokogiriTruncator::NodeWithChildren)
 Nokogiri::XML::Text.send(:include, NokogiriTruncator::TextNode)
-
-
