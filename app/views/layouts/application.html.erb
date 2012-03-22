@@ -27,7 +27,6 @@
         <% flash.each do |key, value| %>
           <li><%= content_tag(:div, value, :class => "flash #{key}") %></li>
         <% end %>
-        <br />
           <%= yield %>
         </div>
       </div>

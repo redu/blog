@@ -28,7 +28,7 @@ body .overlay {
 }
 
 .overlay .body-blog { 
-  background-color rgb(240, 240, 240);
+  background-color: rgb(240, 240, 240);
   border-style: solid;
   border-width: 1px;
   border-color: white;
@@ -421,7 +421,7 @@ body .overlay {
 
 .overlay .footer,  
 .overlay .push {
-clear: both;
+  clear: both;
 }
 
 .body-blog .posts .post {
@@ -870,38 +870,38 @@ clear: both;
   color: rgb(230, 230, 230);
 }
 
-.posts .text-box .text-heading,
-.posts .text-box .disordered-list,
-.posts .text-box .ordered-list {
+.posts .text-box p,
+.posts .text-box ul,
+.posts .text-box ol {
   font-size: 13px;
   line-height: 18px;
   font-weight: normal;
   font-family: arial, sans-serif;
 }
 
-.posts .text-box .heading-2 {
+.posts .text-box h2 {
   font-size: 25px;
-  margin-top: 10px;}
+  margin-top: 10px;
   font-weight: bold;
   font-family: arial, sans-serif;
 }
   
-.posts .text-box .heading-3 {
+.posts .text-box h3 {
   font-size: 17px;
   margin-top: 10px;
   font-weight: bold;
   font-family: arial, sans-serif;
 }
 
-.ordered-list {
+.posts .text-box ol {
   display: block;
   clear: both;
   list-style-type: decimal;
 }
 
-.disordered-list {
+.posts .text-box ul {
   list-style-type: disc;
-  padding: 20px 0px
+  padding: 20px 0px;
 }
 
 .text-box-post {
@@ -914,4 +914,8 @@ clear: both;
 .box-posts .posts .post .year,
 .box-posts .posts .post .day {
   float: right;
+}
+
+p, ul, h2, h3, ol {
+  color: black;
 }
