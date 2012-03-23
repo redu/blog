@@ -76,7 +76,7 @@ Blog::Application.configure do
     :tls                    => true,
     :domain                 => 'redu.com.br',
     :authentication         => :login,
-    :user_name              => "blog@redu.com.br", #TIRAR ISTO
-    :password               => "fat1?retards"      #TIRAR ISTO
+    :user_name              => "ENV[]", #TIRAR ISTO
+    :password               => "ENV[]"      #TIRAR ISTO
   }
 end
