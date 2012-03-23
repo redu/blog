@@ -8,6 +8,17 @@ module TextHelper
     content_length > actual_length ? doc.truncate(actual_length).inner_html + ellipsis : text.to_s
   end
 
+  def truncate_html_v2(html)
+    parsed = Nokogiri::HTML(html)
+    count = 0
+    parsed.xpath("//body").children.each do |child|
+      child.remove if count > 5
+      count = count + 1
+    end
+
+    parsed.to_html
+  end
+
   def truncate_html_tag(html_text, tag)
     parsed = Nokogiri::HTML(html_text)
     parsed.xpath("//"+tag).each do |img|

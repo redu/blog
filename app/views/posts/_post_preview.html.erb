@@ -26,8 +26,8 @@
 <div class="text-box alfa omega grid_11">
   <div class="text alfa omega">
     <% text = markparser.render(post_preview.body) %>
-    <%# if post_preview.title == "A logo do Redu" then debugger end %>
-    <%= raw (truncate (truncate_html(truncate_html_tag(text, "img"), 250, "")),
+    <%= raw truncate_html_v2(truncate_html_tag(text, "img")) %>
+    <%# raw (truncate (truncate_html(truncate_html_tag(text, "img"), 250, "")),
                               :length => 30000, :separator => " ",
                               :omission => " ...") %>
     <%= link_to " + leia mais", post_preview, :class => "read-more" %>
