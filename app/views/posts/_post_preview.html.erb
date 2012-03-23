@@ -1,7 +1,3 @@
-<% markparser = Redcarpet::Markdown.new(Redcarpet::Render::HTML,
-                                        :autolink => true,
-                                        :space_after_headers => false) %>
-
 <li class="post grid_12 omega alfa">
   <%= render :partial => 'posts/post_date',
              :locals => { :post => post_preview } %>
@@ -26,10 +22,7 @@
 <div class="text-box alfa omega grid_11">
   <div class="text alfa omega">
     <% text = markparser.render(post_preview.body) %>
-    <%= raw truncate_html_v2(truncate_html_tag(text, "img")) %>
-    <%# raw (truncate (truncate_html(truncate_html_tag(text, "img"), 250, "")),
-                              :length => 30000, :separator => " ",
-                              :omission => " ...") %>
+    <%= raw truncate_html(truncate_html_tag(text, "img")) %>
     <%= link_to " + leia mais", post_preview, :class => "read-more" %>
   </div>
 </div>

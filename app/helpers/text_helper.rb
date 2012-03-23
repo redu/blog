@@ -1,14 +1,14 @@
 module TextHelper
 
-  def truncate_html(text, max_length, ellipsis = "...")
-    ellipsis_length = ellipsis.length     
-    doc = Nokogiri::HTML::DocumentFragment.parse text
-    content_length = doc.inner_text.length
-    actual_length = max_length - ellipsis_length
-    content_length > actual_length ? doc.truncate(actual_length).inner_html + ellipsis : text.to_s
+  def markparser
+    parser = Redcarpet::Markdown.new(Redcarpet::Render::HTML,
+                                        :autolink => true,
+                                        :space_after_headers => false)
+
+    parser
   end
 
-  def truncate_html_v2(html)
+  def truncate_html(html)
     parsed = Nokogiri::HTML(html)
     count = 0
     parsed.xpath("//body").children.each do |child|
