@@ -33,7 +33,11 @@ gem 'wymeditor'
 # Nokogiri
 gem 'nokogiri'
 
+# Sass Rails
 gem 'sass-rails',   '~> 3.1.5'
+
+# The Ruby Racer
+gem 'therubyracer'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -45,7 +49,6 @@ end
 # Gems utilizadas nos ambientes de desenvolvimento e testes.
 group :development, :test do
   gem 'sqlite3'
-  gem 'therubyracer'
   gem 'rspec-rails', '~> 2.6'
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
