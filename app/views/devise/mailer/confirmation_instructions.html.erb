@@ -1,7 +1,7 @@
-<p>Welcome <%= @resource.email %>!</p>
+<p>Boas vindas, <%= @resource.email %>!</p>
 
-<p>You can confirm your account through the link below:</p>
+<p>Você pode confirmar sua conta clicando no link abaixo:</p>
 
-<p><%= link_to 'Confirm my account', 
+<p><%= link_to 'Confirmar minha conta', 
       confirmation_url(@resource, 
       :confirmation_token => @resource.confirmation_token) %></p>

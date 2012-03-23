@@ -41,13 +41,13 @@ Blog::Application.configure do
   ActionMailer::Base.raise_delivery_errors = true
   ActionMailer::Base.smtp_settings = {
     :enable_starttls_auto 	=> true,
-    :address				=> 'smtp.gmail.com',
-    :port					=> 587,
-	:tls					=> true,
-	:domain					=> 'gmail.com',
-	:authentication			=> :plain,
-	:user_name				=> 'redu.blog@gmail.com',
-	:password				=> 'xadrez2012'
+    :address				        => 'smtp.gmail.com',
+    :port					          => 587,
+    :tls					          => true,
+    :domain					        => 'gmail.com',
+    :authentication			    => :plain,
+    :user_name				      => 'redu.blog@gmail.com',
+    :password				        => 'xadrez2012'
   }
 
 end

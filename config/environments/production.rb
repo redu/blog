@@ -58,4 +58,25 @@ Blog::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+
+  # Config Default Url Options (mailer)
+  config.action_mailer.default_url_options = { :host => 'high-cloud-5925.heroku.com' }
+
+  # Configuração do Action Mailer
+  require 'tlsmail'
+  Net::SMTP.enable_tls(OpenSSL::SSL::VERIFY_NONE)
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.smtp_settings = {
+    :enable_starttls_auto   => true,
+    :address                => 'smtp.gmail.com',
+    :port                   => 587,
+    :tls                    => true,
+    :domain                 => 'redu.com.br',
+    :authentication         => :login,
+    :user_name              => "blog@redu.com.br", #TIRAR ISTO
+    :password               => "fat1?retards"      #TIRAR ISTO
+  }
 end
