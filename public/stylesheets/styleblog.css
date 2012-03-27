@@ -481,7 +481,6 @@ clear: both;
   font-weight: normal;
   font-family: museo-slab, arial, sans-serif;
   color: rgb(109, 110, 111);
-  float: right;
   overflow: hidden;
   line-height: 12px;
 }
