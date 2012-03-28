@@ -7,3 +7,11 @@ $(function() {
         "monochrome": true
     }).css("background-color", "#e6e6e6");
 });
+
+$(document).ready(function(){
+  $(".about-us li:gt(4)").hide();
+
+  $(".stop-here").click(function(){
+    $(".about-us li:gt(4)").slideDown();
+  });
+});
