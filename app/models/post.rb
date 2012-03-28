@@ -63,7 +63,7 @@ class Post < ActiveRecord::Base
     elsif month == nil
       Post.all(:order=>"created_at DESC").group_by { |t| t.created_at.year.to_s}[year.to_s]
     elsif year == nil
-        Post.all(:order=>"created_at DESC").group_by { |t| t.created_at.strftime("%m")}[month.to_s]
+      Post.all(:order=>"created_at DESC").group_by { |t| t.created_at.strftime("%m")}[month.to_s]
     else
       Post.all(:order=>"created_at DESC").group_by { |t| t.created_at.year.to_s + '.' +t.created_at.strftime('%m')}[year.to_s+'.'+month.to_s]
     end
