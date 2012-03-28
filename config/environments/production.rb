@@ -60,7 +60,7 @@ Blog::Application.configure do
   config.active_support.deprecation = :notify
 
   # Config Default Url Options (mailer)
-  config.action_mailer.default_url_options = { :host => 'high-cloud-5925.heroku.com' }
+  config.action_mailer.default_url_options = { :host => 'blog.redu.com.br' }
 
   # Configuração do Action Mailer
   require 'tlsmail'
