@@ -72,6 +72,10 @@ body .overlay {
   overflow: hidden;
 }
 
+.sidebar .some-users .about-us .member {
+  clear: both;
+}
+
 .sidebar .some-users .about-us .link-member:before {
   content: "";
   float: left;
@@ -877,6 +881,7 @@ body .overlay {
   line-height: 18px;
   font-weight: normal;
   font-family: arial, sans-serif;
+  padding: 5px 0 5px 0;
 }
 
 .posts .text-box h2 {
@@ -894,14 +899,15 @@ body .overlay {
 }
 
 .posts .text-box ol {
+  margin-left: 18px;
   display: block;
   clear: both;
   list-style-type: decimal;
 }
 
 .posts .text-box ul {
+  margin-left: 18px;
   list-style-type: disc;
-  padding: 20px 0px;
 }
 
 .text-box-post {
