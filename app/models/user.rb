@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
 	validates_format_of :email, :with => /\A[A-Za-z0-9._%+-]+@redu.com.br/
 
 	# valida senha
-	validates :password, :length => { :minimum => 5 }
+	validates :password, :length => { :minimum => 5 }, :unless => "password.blank?"
 
 	# valida descricao
 	validates :description, :length => 50..90

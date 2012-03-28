@@ -12,6 +12,7 @@ pt-BR:
 
   devise:
     failure:
+      already_authenticated: 'Você já está logado.'
       unauthenticated: 'Para continuar, faça login ou registre-se.'
       unconfirmed: 'Antes de continuar, confirme a sua conta.'
       locked: 'A sua conta está bloqueada.'
@@ -33,6 +34,10 @@ pt-BR:
       inactive_signed_up: 'A sua conta foi criada com sucesso. No entanto, não foi possível fazer login, pois ela está %{reason}.'
       updated: 'A sua conta foi atualizada com sucesso.'
       destroyed: 'Adeus! A sua conta foi cancelada com sucesso. Esperamos vê-lo novamente em breve.'
+      reasons:
+        inactive: 'inativo'
+        unconfirmed: 'sem confirmação'
+        locked: 'bloqueada'
     unlocks:
       send_instructions: 'Dentro de minutos, você receberá um email com instruções de desbloqueio da sua conta.'
       unlocked: 'A sua conta foi desbloqueada com sucesso. Você está autenticado.'
