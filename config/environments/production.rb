@@ -76,7 +76,7 @@ Blog::Application.configure do
     :tls                    => true,
     :domain                 => 'redu.com.br',
     :authentication         => :login,
-    :user_name              => "ENV[]", #TIRAR ISTO
-    :password               => "ENV[]"      #TIRAR ISTO
+    :user_name              => ENV['GMAIL_SMTP_BLOG_USER'],
+    :password               => ENV['GMAIL_SMTP_BLOG_PASSWORD']
   }
 end
