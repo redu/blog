@@ -1,7 +1,7 @@
 <div class="grid_4 alfa some-users">
   <ul class="about-us grid_4 omega alfa">
     <li class="title">Quem Somos </li>
-    <% User.all.each do |user| %>
+    <% User.all.shuffle.each do |user| %>
       <li class="member">
         <%= link_to user.username, user.profile_link, :class => "link-member" %>
         <span class="description grid_3">
