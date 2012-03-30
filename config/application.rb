@@ -27,7 +27,7 @@ module Blog
 
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
-   config.time_zone = 'Brasilia'
+    config.time_zone = 'Brasilia'
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '*.{rb,yml}').to_s]
@@ -51,7 +51,17 @@ module Blog
     # Add stop-word list
     if File.exists?("#{Rails.root}/lib/stop_words/words.yml")
       config.stop_words = YAML.load_file("#{Rails.root}/lib/stop_words/words.yml")
+    end
 
-	 end
+    config.middleware.insert_before(Rack::Lock, Rack::Rewrite) do
+      rewrite 'http://high-cloud-5925.heroku.com/', 'http://blog.redu.com.br'
+
+      # Sobrescreve as URL's de exibição de postagens por períodos de tempo
+      r301 %r{^/([0-9]+)/?([0-9]*$)}, '/posts/archive?month=$2&year=$1'
+
+      # Sobrescreve as URL's de categorias e tags
+      r301 %r{^/category/([0-9aA-zZ-]*$)}, '/tags/1/posts' # tag#1 => Educação
+      r301 %r{^/tag/([0-9aA-zZ-]*$)}, '/tags/1/posts'
+    end
   end
 end

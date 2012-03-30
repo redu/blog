@@ -39,6 +39,9 @@ gem 'sass-rails',   '~> 3.1.5'
 # The Ruby Racer
 gem 'therubyracer'
 
+# Rack-Rewrite para sobrescrever URL's do blog antigo.
+gem 'rack-rewrite', '~>1.2.1'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
