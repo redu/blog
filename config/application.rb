@@ -57,7 +57,8 @@ module Blog
       rewrite 'http://high-cloud-5925.heroku.com/', 'http://blog.redu.com.br'
 
       # Sobrescreve as URL's de exibição de postagens por períodos de tempo
-      r301 %r{^/([0-9]+)/?([0-9]*)/?$}, '/posts/archive?month=$2&year=$1'
+      r301 %r{^/([0-9]+)/?$}, '/posts/archive?year=$1'
+      r301 %r{^/([0-9]+)/?([0-9]+)/?$}, '/posts/archive?month=$2&year=$1'
 
       # Sobrescreve as URL's de categorias e tags
       r301 %r{^/category/([0-9aA-zZ-]*$)}, '/tags/1/posts' # tag#1 => Educação
