@@ -1,0 +1,6 @@
+<% if current_user %>
+  <%= link_to "Editar Postagem", edit_post_path(post) %> || 
+  <%= link_to "Apagar Postagem", "/posts/#{post.id}", 
+              :method => :delete, 
+              :confirm => "Tem certeza que quer apagar a postagem?" %> 
+<% end %>

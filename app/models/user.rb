@@ -1,26 +1,29 @@
 class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
+  # Configura o Devise. Outras possíveis configurações são:
   # :token_authenticatable, :encryptable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :trackable, :recoverable, :registerable,
   	     :rememberable, :confirmable
 
-  # Setup accessible (or protected) attributes for your model
+  # Configura atributos acessíveis.
   attr_accessible :email, :password, :password_confirmation, :remember_me,
   	              :username, :description, :profile_link
 
-	# associa usuario a suas postagens
+	# Associa usuário a suas postagens.
 	has_many :posts
 
-	# valida email
+  # Valida unicidade da coluna email.
+  validates_uniqueness_of :email
+
+	# Valida o formato do e-mail.
 	validates_format_of :email, :with => /\A[A-Za-z0-9._%+-]+@redu.com.br/
 
-	# valida senha
+	# Valida formato da senha.
 	validates :password, :length => { :minimum => 5 }, :unless => "password.blank?"
 
-	# valida descricao
+	# Valida descrição.
 	validates :description, :length => 50..90
 
-	# valida link do perfil Redu
+	# Valida link do perfil do Redu.
 	validates :profile_link, :presence => true
 	validates_format_of :profile_link,
 							        :with => /http:\/\/[www.]*redu.com.br\/pessoas\/[a-zA-Z_0-9]+/,

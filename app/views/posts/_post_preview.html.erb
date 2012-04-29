@@ -24,6 +24,8 @@
     <% text = markparser.render(post_preview.body) %>
     <%= raw truncate_html(truncate_html_tag(text, "img")) %>
     <%= link_to " + leia mais", post_preview, :class => "read-more" %>
+    <%= render :partial => 'edit_or_delete_post_links',
+               :locals => { :post => post_preview } %>
   </div>
 </div>
 </li>

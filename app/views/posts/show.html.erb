@@ -5,7 +5,7 @@
     </li>
     <li class="post-page"><%= link_to 'post', @post %></li>
   </ul>
-</div><! -- end navbar -->
+</div>
 
 <div class="box-posts omega alfa grid_12">
   <ol class="posts omega alfa">
@@ -35,6 +35,8 @@
       <div class="text-box text-box-post alfa omega grid_11">
         <%= raw markparser.render(@post.body) %>
       </div>
+      <%= render :partial => 'edit_or_delete_post_links',
+           :locals => { :post => @post } %>
     </li>
   </ol>
 </div>

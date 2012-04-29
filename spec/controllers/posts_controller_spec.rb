@@ -1,7 +1,7 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
 describe PostsController, 'creating a new post' do
-  integrate_views
+  render_views
 
   it 'should redirect to post on successful save.' do
     FactoryGirl.build(:post)
