@@ -4,10 +4,10 @@ source 'http://rubygems.org'
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
 # Rails
-gem 'rails', '3.1.3'
+gem 'rails', '~> 3.2.11'
 
 # Active Admin
-gem 'activeadmin', '~> 0.3.2'
+gem 'activeadmin', '~> 0.5.1'
 
 # JSon
 gem 'json'
@@ -34,7 +34,7 @@ gem 'wymeditor'
 gem 'nokogiri'
 
 # Sass Rails
-gem 'sass-rails',   '~> 3.1.5'
+gem 'sass-rails',   '~> 3.2.3'
 
 # The Ruby Racer
 gem 'therubyracer'
@@ -44,7 +44,7 @@ gem 'rack-rewrite', '~>1.2.1'
 
 # Gems utilizadas para assets e desnecessárias ao ambiente de produção.
 group :assets do
-  gem 'coffee-rails', '~> 3.1.1'
+  gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
 end
 

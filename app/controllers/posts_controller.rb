@@ -21,6 +21,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(params[:post])
+    params[:tag]["id"].delete('')
     @post.update_tags(params[:tag])
     @post.user_id = current_user.id
     respond_to do |format|
