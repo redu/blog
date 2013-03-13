@@ -71,8 +71,8 @@ Blog::Application.configure do
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.smtp_settings = {
     :enable_starttls_auto   => true,
-    :address                => 'smtp.gmail.com',
-    :port                   => 587,
+    :address                => 'email-smtp.us-east-1.amazonaws.com',
+    :port                   => 465,
     :tls                    => true,
     :domain                 => 'redu.com.br',
     :authentication         => :login,
