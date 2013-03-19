@@ -67,7 +67,6 @@ Blog::Application.configure do
   Net::SMTP.enable_tls(OpenSSL::SSL::VERIFY_NONE)
 
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.smtp_settings = {
     :address                => 'email-smtp.us-east-1.amazonaws.com',
