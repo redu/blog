@@ -4,7 +4,7 @@ source 'http://rubygems.org'
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
 # Rails
-gem 'rails', '~> 3.2.11'
+gem 'rails', '~> 3.2.13'
 
 # Active Admin
 gem 'activeadmin', '~> 0.5.1'
