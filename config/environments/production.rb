@@ -59,21 +59,23 @@ Blog::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 
-  # Config Default Url Options (mailer)
-  config.action_mailer.default_url_options = { :host => 'blog.redu.com.br' }
-
   # Configuração do Action Mailer
   require 'tlsmail'
   Net::SMTP.enable_tls(OpenSSL::SSL::VERIFY_NONE)
 
   config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.smtp_settings = {
-    :address                => 'email-smtp.us-east-1.amazonaws.com',
-    :port                   => 465,
+    :enable_starttls_auto => true,
+    :address => 'smtp.gmail.com',
+    :port => 587,
     :domain                 => 'redu.com.br',
     :authentication         => :login,
     :user_name              => ENV['GMAIL_SMTP_BLOG_USER'],
     :password               => ENV['GMAIL_SMTP_BLOG_PASSWORD']
   }
+
+  # Config Default Url Options (mailer)
+  config.action_mailer.default_url_options = { :host => 'redu.com.br' }
 end
