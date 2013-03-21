@@ -72,10 +72,11 @@ Blog::Application.configure do
     :port => 587,
     :domain                 => 'redu.com.br',
     :authentication         => :login,
-    :user_name              => ENV['GMAIL_SMTP_BLOG_USER'],
-    :password               => ENV['GMAIL_SMTP_BLOG_PASSWORD']
+    :user_name              => 'contato@redu.com.br',
+    :password               => 'epic130@fair'
+
   }
 
   # Config Default Url Options (mailer)
-  config.action_mailer.default_url_options = { :host => 'redu.com.br' }
+  config.action_mailer.default_url_options = { :host => 'blog.redu.com.br' }
 end
